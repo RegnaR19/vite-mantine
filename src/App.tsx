@@ -1,15 +1,22 @@
+import { Container } from '@mantine/core';
 import { Text, Button, Stack } from "@mantine/core";
 import { ThemeProvider } from "./ThemeProvider";
+import FooterOne from "./components/Navbar/Footer";
+import Header from "./components/Navbar/Header";
+import MainPage from './MainPage';
 
 export default function App() {
-  return (
-    <ThemeProvider>
-      <Stack align="center" mt={50}>
-        <Text size="xl" weight={500}>
-          Welcome to Mantine!
-        </Text>
-        <Button>Click the button</Button>
-      </Stack>
-    </ThemeProvider>
-  );
+   return (
+      <ThemeProvider>
+         <Container>
+            <Stack mt={30}>
+               <Text size="xl" weight={300}>
+                  <Header />
+                  <MainPage />
+                  <FooterOne />
+               </Text>
+            </Stack>
+         </Container>
+      </ThemeProvider>
+   );
 }
