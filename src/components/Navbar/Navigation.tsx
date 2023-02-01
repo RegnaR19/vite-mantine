@@ -1,35 +1,53 @@
 // страница основного меню
 import { NavLink } from 'react-router-dom';
-import s from './Navigation.module.css';
+import { Box, NavLink as NavMantine } from '@mantine/core';
+import {
+   IconHome2, IconSettings, IconGauge, IconChevronRight,
+   IconAt, IconActivity, IconCircleOff
+} from '@tabler/icons';
+import s from './Navigation.module.css'
 
 const Navigation = () => {
    return (
       <>
-                     <NavLink to="/profile" className={s.active}>
-                        Профиль</NavLink>
-                  
-
-                     <NavLink to="/messages" className={s.active}>
-                        Сообщения</NavLink>
-                  
-
-                     <NavLink to="/news" className={s.active}>
-                        Новости</NavLink>
-                  
-
-                  
-                     <NavLink to="/music" className={s.active}>
-                        Музыка</NavLink>
-                  
-
-                  
-                     <NavLink to="/settings" className={s.active}>
-                        Настройки</NavLink>
-                  
-
-                  
-                     <NavLink to="/test" className={s.active}>
-                        Тестовая</NavLink>
+         <Box sx={{ width: 180 }} className={s.link}>
+            <NavLink to="/profile">
+               <NavMantine
+                  icon={<IconHome2 size={16} stroke={1.5} />}
+                  description='Стена' label="Профиль"
+               />
+            </NavLink>
+            <NavLink to="/messages">
+               <NavMantine
+                  icon={<IconAt size={16} stroke={1.5} />}
+                  description='' label="Сообщения"
+               />
+            </NavLink>
+            <NavLink to="/news">
+               <NavMantine
+                  icon={<IconChevronRight size={16} stroke={1.5} />}
+                  description='' label="Новости"
+               />
+            </NavLink>
+            <NavLink to="/music">
+               <NavMantine
+                  icon={<IconActivity size={16} stroke={1.5} />}
+                  description='' label="Музыка"
+               />
+            </NavLink>
+            <NavLink to="/settings">
+               <NavMantine
+                  icon={<IconSettings size={16} stroke={1.5} />}
+                  description='' label="Настройки"
+               />
+            </NavLink>
+            <NavLink to="/test">
+               <NavMantine
+                  icon={<IconCircleOff size={16} stroke={1.5} />}
+                  description='Эксперименты' label="Тестовая"
+               />
+            </NavLink>
+         </Box>
       </>
    );
 }

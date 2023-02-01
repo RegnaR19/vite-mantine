@@ -4,7 +4,7 @@ import imageToAdd from "../../assets/ps.png";
 import { Grid } from '@mantine/core';
 import s from './Header.module.css';
 
-export default function Header() {
+export default function HeaderOne() {
    return (
          <Grid>
             <Grid.Col span={6}>

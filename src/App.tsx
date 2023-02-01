@@ -1,5 +1,5 @@
 import { Container } from '@mantine/core';
-import { Text, Button, Stack } from "@mantine/core";
+import { Text, Stack } from "@mantine/core";
 import { ThemeProvider } from "./ThemeProvider";
 import FooterOne from "./components/Navbar/Footer";
 import Header from "./components/Navbar/Header";
