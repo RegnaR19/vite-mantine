@@ -3,26 +3,29 @@ import ProfileInfo from './ProfileInfo';
 import WallPage from './WallPage';
 import HeaderImg from './common/HeaderImg';
 import Avatar from './common/Avatar';
+import mashiro from "../../assets/mashiro.jpg";
+import naruto from "../../assets/naruto.png";
+import saske from "../../assets/saske.jpg";
 
-const MainProfile = (props) => {
+const MainProfile = () => {
 
    let currentPost = [
-      { id: 1, post: "Даттебайо", likescount: 10, img: `${process.env.PUBLIC_URL}/img/mashiro.jpg` },
-      { id: 2, post: "Chidori!", likescount: 1000, img: `${process.env.PUBLIC_URL}/img/saske.jpg` },
-      { id: 3, post: "Rasengan!", likescount: 5000, img: `${process.env.PUBLIC_URL}/img/naruto.png` }
+      { id: 1, post: "Даттебайо", likescount: 10, img: {mashiro} },
+      { id: 2, post: "Chidori!", likescount: 1000, img: {saske} },
+      { id: 3, post: "Rasengan!", likescount: 5000, img: {naruto} }
    ]
 
    return (
       <>
-               <HeaderImg /> {/* обложка */}
+               {/* <HeaderImg /> обложка */}
                
-               <Avatar /> {/* аватар */}
-               
+               <Avatar />
+{/*                
                <ProfileInfo name="Вадим" age="27" professional="реактивист"
-                  city="Альменево" /> {/* информация профиля */}
+                  city="Альменево" />  */}
            
            
-               <WallPage post={currentPost} key={currentPost} />
+               {/* <WallPage post={currentPost} key={currentPost} /> */}
             
       </>
    );

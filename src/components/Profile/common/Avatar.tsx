@@ -1,8 +1,11 @@
 // аватар профиля
+import { Image } from '@mantine/core';
+import avatar from "../../../assets/avatar.jpg";
+import s from './Avatar.module.css'
 
 const Avatar = () => {
    return (
-      <img src={`${process.env.PUBLIC_URL}/img/avatar.jpg`} />
+      <Image src={avatar} className={s.avatar} />
    );
 }
 
