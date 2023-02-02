@@ -1,9 +1,11 @@
 // обложка профиля
+import { Image } from '@mantine/core';
 import s from '../MainProfile.module.css';
+import waifu from "../../../assets/waifu.jpg";
 
 const HeaderImg = () => {
    return (
-      <img src={`${process.env.PUBLIC_URL}/img/waifu.jpg`} className={s.waifu} />
+      <Image src={waifu} className={s.waifu} radius="lg" />
    );
 }
 

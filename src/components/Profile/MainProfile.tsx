@@ -10,23 +10,22 @@ import saske from "../../assets/saske.jpg";
 const MainProfile = () => {
 
    let currentPost = [
-      { id: 1, post: "Даттебайо", likescount: 10, img: {mashiro} },
-      { id: 2, post: "Chidori!", likescount: 1000, img: {saske} },
-      { id: 3, post: "Rasengan!", likescount: 5000, img: {naruto} }
+      { id: 1, post: "Даттебайо", likescount: 10, img: { mashiro } },
+      { id: 2, post: "Chidori!", likescount: 1000, img: { saske } },
+      { id: 3, post: "Rasengan!", likescount: 5000, img: { naruto } }
    ]
 
    return (
       <>
-               {/* <HeaderImg /> обложка */}
-               
-               <Avatar />
-{/*                
-               <ProfileInfo name="Вадим" age="27" professional="реактивист"
-                  city="Альменево" />  */}
-           
-           
-               {/* <WallPage post={currentPost} key={currentPost} /> */}
-            
+         <HeaderImg />
+         <br />
+         <Avatar />
+
+         <ProfileInfo name="Вадим" age="27" professional="реактивист"
+            city="Альменево" />
+
+
+         {/* <WallPage post={currentPost} /> */}
       </>
    );
 }

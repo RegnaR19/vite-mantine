@@ -7,7 +7,6 @@ const Post = () => {
             <div className={s.item}>
                <img src={img} /> {message}
             </div>
-
             {likescount}
             </>
    );

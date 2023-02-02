@@ -24,9 +24,9 @@ const Dialogs = (props) => {
                
                Сообщения
                
-               {dialogsElements}
+               {props.dialogsElements}
 
-               {messagesElements}
+               {props.messagesElements}
                </>
    );
 }

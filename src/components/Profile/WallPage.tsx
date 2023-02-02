@@ -1,7 +1,7 @@
 // страница стены
 import Post from './Post';
 
-const WallPage = (props) => {
+const WallPage = (props:any) => {
 
    let postElements =
       props.post.map(el => <Post id={el.id} message={el.post}

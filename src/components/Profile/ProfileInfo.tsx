@@ -1,5 +1,5 @@
 // информация о профиле
-const ProfileInfo = (props) => {
+const ProfileInfo = (props:any) => {
    return (
       <>
          <div>Имя: {props.name}</div>

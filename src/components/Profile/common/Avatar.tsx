@@ -5,7 +5,7 @@ import s from './Avatar.module.css'
 
 const Avatar = () => {
    return (
-      <Image src={avatar} className={s.avatar} />
+      <Image src={avatar} className={s.avatar} radius="lg" />
    );
 }
 
