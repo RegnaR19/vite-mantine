@@ -10,7 +10,7 @@ import s from './Navigation.module.css'
 const Navigation = () => {
    return (
       <>
-         <Box sx={{ width: 180 }} className={s.link}>
+         <div className={s.link}>
             <NavLink to="/profile">
                <NavMantine
                   icon={<IconHome2 size={16} stroke={1.5} />}
@@ -47,7 +47,7 @@ const Navigation = () => {
                   description='Эксперименты' label="Тестовая"
                />
             </NavLink>
-         </Box>
+         </div>
       </>
    );
 }

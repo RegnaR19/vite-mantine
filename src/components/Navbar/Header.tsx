@@ -6,13 +6,10 @@ import s from './Header.module.css';
 
 export default function HeaderOne() {
    return (
-      <Grid justify="flex-end" align="center">
-         <Grid.Col span="content">
-            <Image src={imageToAdd} className={s.logo} />
-         </Grid.Col>
-         <Grid.Col span="content">
-            Просто пустая строка
-         </Grid.Col>
-      </Grid>
+      <>
+         <Image src={imageToAdd} className={s.logo} />
+
+         Просто пустая строка
+      </>
    );
 }

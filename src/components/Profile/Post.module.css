@@ -1,6 +1,4 @@
 .item {
-   color: green;
-}
-.item img {
-   width: 120px !important;
+   color: rgb(255, 211, 54);
+   font-weight: 400;
 }
