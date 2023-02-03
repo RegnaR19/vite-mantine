@@ -1,13 +1,13 @@
 // основная страница новостей
-import { useState } from 'react';
+import NewsCard from './NewsCard';
 
 const NewsPage = () => {
-
-   const [like, setLike] = useState(0);
-
    return (
       <>
          Страница новостей
+         <NewsCard width='200px' height='200px'>
+            Привет
+         </NewsCard>
       </>
    );
 }
