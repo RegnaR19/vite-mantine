@@ -9,37 +9,41 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import MusicPage from './components/Music/MusicPage';
 import SettingsPage from './components/Settings/SettingsPage';
 import TestPage from './components/Settings/TestPage';
-import { Box, Col, Grid, Text, Container } from '@mantine/core';
+import { Text } from '@mantine/core';
+import s from './App.module.css'
 
 export default function App() {
    return (
       <ThemeProvider>
          <BrowserRouter>
-            <table>
-               <Text size="xl" weight={300}>
-                  <HeaderOne />
-                  <tr><td className="side">
-                     <Navigation />
-                  </td>
-                     <Grid>
-                        <Col className="center">
-                        <Routes>
-                           <Route path="/profile" element={<MainProfile />} />
-                           {/* <Route path="/messages" element={<Dialogs />} /> */}
-                           <Route path="/news" element={<NewsPage />} />
-                           <Route path="/music" element={<MusicPage />} />
-                           <Route path="/settings" element={<SettingsPage />} />
-                           <Route path="/test" element={<TestPage />} />
-                        </Routes>
-                        </Col>
-                     </Grid>
-                     <td className="side">
-                        Сайдбар
-                     </td></tr>
-
-                  <FooterOne />
-               </Text>
-            </table>
+            <Text size="xl" weight={300}>
+               <div className={s.layout}>
+                  <div className={s.col1_noborder}></div>
+                  <div className={s.col3_noborder}></div>
+                  <div className={s.col2}>
+                     <div className={s.header}><HeaderOne /></div>
+                  </div>
+               </div>
+               <div className={s.layout}>
+                  <div className={s.col1}><Navigation /></div>
+                  <div className={s.col3}>Сайдбар</div>
+                  <div className={s.col2}><Routes>
+                     <Route path="/profile" element={<MainProfile />} />
+                     {/* <Route path="/messages" element={<Dialogs />} /> */}
+                     <Route path="/news" element={<NewsPage />} />
+                     <Route path="/music" element={<MusicPage />} />
+                     <Route path="/settings" element={<SettingsPage />} />
+                     <Route path="/test" element={<TestPage />} />
+                  </Routes></div>
+               </div>
+               <div className={s.layout}>
+                  <div className={s.col1_noborder}></div>
+                  <div className={s.col3_noborder}></div>
+                  <div className={s.col2}>
+                     <div className={s.header}><FooterOne /></div>
+                  </div>
+               </div>
+            </Text>
          </BrowserRouter>
       </ThemeProvider>
    );

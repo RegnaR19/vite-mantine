@@ -12,12 +12,10 @@ type Props = {
 const Cards: React.FC<Props> = ({ id, header, message, likescount, img }) => {
     return (
         <>
-            <Card shadow="sm" p="lg" radius="md" withBorder>
-                <Card.Section>
+            <Card shadow="sm" p="lg" radius="md" withBorder className={s.item}>
+                <Card.Section className={s.item}>
                     <Image className={s.item}
                         src={img}
-                        height={160}
-                        alt="Norway"
                     />
                 </Card.Section>
 
