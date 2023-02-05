@@ -1,9 +1,18 @@
 // ссылка на сообщения
 import { NavLink } from 'react-router-dom';
 
-const Messages = () => {
+type Props = {
+   id?: number,
+   message?: string,
+   path: string
+}
+
+const Messages: React.FC<Props> = ({ message, path }) => {
+
    return (
-      <div><NavLink to={id}>{message}</NavLink></div>
+      <>
+         <div><NavLink to={path}>{message}</NavLink></div>
+      </>
    )
 }
 

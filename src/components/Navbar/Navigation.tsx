@@ -1,51 +1,53 @@
 // страница основного меню
 import { NavLink } from 'react-router-dom';
-import { Box, NavLink as NavMantine } from '@mantine/core';
+import { NavLink as NavMantine } from '@mantine/core';
 import {
-   IconHome2, IconSettings, IconGauge, IconChevronRight,
-   IconAt, IconActivity, IconCircleOff
+   IconHome2, IconSettings, IconChevronRight,
+   IconAt, IconActivity, IconCircleOff, IconBadge4k
 } from '@tabler/icons';
 import s from './Navigation.module.css'
+import AccountMenu from '../Profile/AccountMenu';
 
 const Navigation = () => {
    return (
       <>
+      
+      <AccountMenu />
          <div className={s.link}>
             <NavLink to="/profile">
                <NavMantine
-                  icon={<IconHome2 size={16} stroke={1.5} />}
-                  description='Стена' label="Профиль"
-               />
+                  icon={<IconHome2 size={18} stroke={1.5} />}
+                  description='Стена' label="Профиль" />
             </NavLink>
             <NavLink to="/messages">
                <NavMantine
-                  icon={<IconAt size={16} stroke={1.5} />}
-                  description='' label="Сообщения"
-               />
+                  icon={<IconAt size={18} stroke={1.5} />}
+                  description='' label="Сообщения" />
             </NavLink>
             <NavLink to="/news">
                <NavMantine
-                  icon={<IconChevronRight size={16} stroke={1.5} />}
-                  description='' label="Новости"
-               />
+                  icon={<IconChevronRight size={18} stroke={1.5} />}
+                  description='' label="Новости" />
             </NavLink>
             <NavLink to="/music">
                <NavMantine
-                  icon={<IconActivity size={16} stroke={1.5} />}
-                  description='' label="Музыка"
-               />
+                  icon={<IconActivity size={18} stroke={1.5} />}
+                  description='' label="Музыка" />
+            </NavLink>
+            <NavLink to="/video">
+               <NavMantine
+                  icon={<IconBadge4k size={18} stroke={1.5} />}
+                  label="Видео" />
             </NavLink>
             <NavLink to="/settings">
                <NavMantine
-                  icon={<IconSettings size={16} stroke={1.5} />}
-                  description='' label="Настройки"
-               />
+                  icon={<IconSettings size={18} stroke={1.5} />}
+                  description='' label="Настройки" />
             </NavLink>
             <NavLink to="/test">
                <NavMantine
-                  icon={<IconCircleOff size={16} stroke={1.5} />}
-                  description='Эксперименты' label="Тестовая"
-               />
+                  icon={<IconCircleOff size={18} stroke={1.5} />}
+                  description='Эксперименты' label="Тестовая" />
             </NavLink>
          </div>
       </>

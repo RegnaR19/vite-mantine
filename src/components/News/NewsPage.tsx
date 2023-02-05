@@ -6,7 +6,7 @@ const NewsPage = () => {
       <>
          Страница новостей
          <NewsCard width='200px' height='200px'>
-            Привет
+            Ну типа привет
          </NewsCard>
       </>
    );

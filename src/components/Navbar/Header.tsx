@@ -12,7 +12,7 @@ export default function HeaderOne() {
                <Image src={imageToAdd} className={s.logo} />
             </Grid.Col>
             <Grid.Col span="content">
-               Просто пустая строка
+               Проект 'REACTivacia'
             </Grid.Col>
          </Grid>
       </>

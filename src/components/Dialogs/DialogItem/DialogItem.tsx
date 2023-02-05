@@ -1,10 +1,18 @@
 // ссылка на диалог
 import { NavLink } from 'react-router-dom';
 
-const DialogItem = (props) => {
-   let path = "/dialogs/" + props.id;
+type Props = {
+   path?: string,
+   name: string,
+   id: number
+}
+
+const DialogItem:React.FC <Props> = ({id, name}) => {
+
+   let path = "/dialogs/" + id;
+
    return (
-      <div><NavLink to={path}>{props.name}</NavLink></div>
+      <div><NavLink to={path}>{name}</NavLink></div>
    )
 }
 

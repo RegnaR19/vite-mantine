@@ -6,7 +6,9 @@ import naruto from "../../assets/naruto.jpg";
 import saske from "../../assets/saske.jpg";
 import rem from "../../assets/rem.webp";
 import Cards from './WallCards';
-import { Grid } from '@mantine/core';
+import { Divider, Grid } from '@mantine/core';
+import WritePost from './WritePost';
+import AccountMenu from './AccountMenu';
 
 const MainProfile = () => {
 
@@ -23,13 +25,16 @@ const MainProfile = () => {
    return (
       <div>
          <HeaderImg />
-         
+         <Divider my="sm" />
          <Grid>
-      <Grid.Col span="content"><Avatar /></Grid.Col>
-      <Grid.Col span="content"><ProfileInfo name="Вадим" age="27" professional="реактивист"
-            city="Альменево" /></Grid.Col>
-    </Grid>
-         
+            <Grid.Col span="content"><Avatar /></Grid.Col>
+            <Grid.Col span="content"><ProfileInfo name="Вадим" age="27" professional="реактивист"
+               city="Альменево" /></Grid.Col>
+         </Grid>
+
+         <Divider my="sm" />
+         <WritePost />
+         <Divider my="sm" />
          {postElements}
       </div>
    );

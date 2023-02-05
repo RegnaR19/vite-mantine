@@ -8,7 +8,7 @@ type Props = {
 const NewsCard: React.FC<Props> = ({ height, width, children }) => {
    return (
       <>
-         <div style={{ width, height, background: 'gray' }}>
+         <div style={{ width, height, background: 'green' }}>
             {children}
          </div>
       </>
