@@ -14,7 +14,7 @@ const Avatar = () => {
             <Image src={avatar} className={s.avatar} />
          </Skeleton>
          <Group>
-            <Button onClick={() => setVisible((v) => !v)}>Скрыть</Button>
+            <Button gradient={{ from: 'indigo', to: 'cyan' }} onClick={() => setVisible((v) => !v)}>Скрыть</Button>
          </Group>
       </>
    );

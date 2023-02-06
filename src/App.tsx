@@ -1,6 +1,5 @@
 import { ThemeProvider } from "./ThemeProvider";
 import FooterOne from "./components/Navbar/Footer";
-import HeaderOne from "./components/Navbar/Header";
 import MainProfile from './components/Profile/MainProfile';
 import Navigation from './components/Navbar/Navigation';
 import Dialogs from './components/Dialogs/Dialogs';
@@ -16,8 +15,9 @@ import VideoPage from "./components/Video/VideoPage";
 import AccountMenu from "./components/Profile/AccountMenu";
 
 type Props = {
-   dialogs: any,
-   messages: any
+   dialogs?: any,
+   messages?: any,
+   state: any
 }
 
 const App: React.FC<Props> = ({ ...props }) => {
@@ -36,7 +36,8 @@ const App: React.FC<Props> = ({ ...props }) => {
                   <div className={s.col2}>
                      <Routes>
                         <Route path="/profile" element={<MainProfile />} />
-                        <Route path="/messages" element={<Dialogs dialogs={props.dialogs} messages={props.messages} />} />
+                        <Route path="/messages" element={<Dialogs
+                           state={props.state.dialogsPage} />} />
                         <Route path="/news" element={<NewsPage />} />
                         <Route path="/music" element={<MusicPage />} />
                         <Route path="/settings" element={<SettingsPage />} />

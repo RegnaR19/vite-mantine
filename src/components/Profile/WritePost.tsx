@@ -1,6 +1,7 @@
 // страница написания постов
 import { Button, Grid, Textarea } from "@mantine/core";
 import { IconPencilPlus } from "@tabler/icons";
+import avatar from "../../../assets/avatar.jpg";
 
 const WritePost = () => {
    return (
@@ -14,7 +15,7 @@ const WritePost = () => {
             size="md"
          />
          <div style={{ marginBottom: 10 }} />
-         <Button variant="gradient" leftIcon={<IconPencilPlus />}
+         <Button onClick={() => {alert('{avatar}')}} variant="gradient" leftIcon={<IconPencilPlus />}
             gradient={{ from: 'indigo', to: 'cyan' }}>
             Опубликовать
          </Button>
