@@ -13,6 +13,7 @@ import { Text } from '@mantine/core';
 import s from './App.module.css'
 import Sidebar from "./components/Navbar/Sidebar";
 import VideoPage from "./components/Video/VideoPage";
+import AccountMenu from "./components/Profile/AccountMenu";
 
 type Props = {
    dialogs: any,
@@ -25,24 +26,24 @@ const App: React.FC<Props> = ({ ...props }) => {
          <BrowserRouter>
             <Text size="xl" weight={300}>
                <div className={s.layout}>
-                  <div className={s.col1_noborder}></div>
-                  <div className={s.col3_noborder}></div>
                   <div className={s.col2}>
-                     <div className={s.header}><HeaderOne /></div>
+                     <AccountMenu />
                   </div>
                </div>
                <div className={s.layout}>
                   <div className={s.col1}><Navigation /></div>
                   <div className={s.col3}><Sidebar /></div>
-                  <div className={s.col2}><Routes>
-                     <Route path="/profile" element={<MainProfile />} />
-                     <Route path="/messages" element={<Dialogs dialogs={props.dialogs} messages={props.messages} />} />
-                     <Route path="/news" element={<NewsPage />} />
-                     <Route path="/music" element={<MusicPage />} />
-                     <Route path="/settings" element={<SettingsPage />} />
-                     <Route path="/test" element={<TestPage />} />
-                     <Route path="/video" element={<VideoPage />} />
-                  </Routes></div>
+                  <div className={s.col2}>
+                     <Routes>
+                        <Route path="/profile" element={<MainProfile />} />
+                        <Route path="/messages" element={<Dialogs dialogs={props.dialogs} messages={props.messages} />} />
+                        <Route path="/news" element={<NewsPage />} />
+                        <Route path="/music" element={<MusicPage />} />
+                        <Route path="/settings" element={<SettingsPage />} />
+                        <Route path="/test" element={<TestPage />} />
+                        <Route path="/video" element={<VideoPage />} />
+                     </Routes>
+                  </div>
                </div>
                <div className={s.layout}>
                   <div className={s.col1_noborder}></div>

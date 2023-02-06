@@ -11,10 +11,10 @@ const Avatar = () => {
    return (
       <>
          <Skeleton height={100} mb="md" radius="lg" visible={visible}>
-            <Image src={avatar} className={s.avatar} radius="lg" />
+            <Image src={avatar} className={s.avatar} />
          </Skeleton>
          <Group>
-            <Button onClick={() => setVisible((v) => !v)}>Toggle</Button>
+            <Button onClick={() => setVisible((v) => !v)}>Скрыть</Button>
          </Group>
       </>
    );

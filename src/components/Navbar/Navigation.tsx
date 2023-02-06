@@ -6,13 +6,10 @@ import {
    IconAt, IconActivity, IconCircleOff, IconBadge4k
 } from '@tabler/icons';
 import s from './Navigation.module.css'
-import AccountMenu from '../Profile/AccountMenu';
 
 const Navigation = () => {
    return (
       <>
-      
-      <AccountMenu />
          <div className={s.link}>
             <NavLink to="/profile">
                <NavMantine

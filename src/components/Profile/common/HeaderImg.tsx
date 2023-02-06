@@ -5,7 +5,7 @@ import waifu from "../../../assets/waifu.jpg";
 
 const HeaderImg = () => {
    return (
-      <Image src={waifu} className={s.waifu} />
+      <Image src={waifu} />
    );
 }
 

@@ -1,4 +1,5 @@
 // ссылка на сообщения
+import { IconSend } from '@tabler/icons';
 import { NavLink } from 'react-router-dom';
 
 type Props = {
@@ -11,7 +12,7 @@ const Messages: React.FC<Props> = ({ message, path }) => {
 
    return (
       <>
-         <div><NavLink to={path}>{message}</NavLink></div>
+         <div><IconSend size={20}/> <NavLink to={path}>{message}</NavLink></div>
       </>
    )
 }
