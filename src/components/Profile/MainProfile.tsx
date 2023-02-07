@@ -9,10 +9,11 @@ import WritePost from './WritePost';
 type Props = {
    dialogs?: any,
    messages?: any,
-   state?: any
+   state: any,
+   addPost: any
 }
 
-const MainProfile: React.FC<Props> = (...props) => {
+const MainProfile: React.FC<Props> = ({ ...props }) => {
 
    let postElements =
       props.state.posts.map((p: any) =>
@@ -25,12 +26,13 @@ const MainProfile: React.FC<Props> = (...props) => {
          <Divider my="sm" />
          <Grid>
             <Grid.Col span="content"><Avatar /></Grid.Col>
-            <Grid.Col span="content"><ProfileInfo name="Вадим" age="27" professional="реактивист"
-               city="Альменево" /></Grid.Col>
+            <Grid.Col span="content">
+               <ProfileInfo name="Вадим" age="27" professional="реактивист"
+                  city="Альменево" />
+            </Grid.Col>
          </Grid>
-
          <Divider my="sm" />
-         <WritePost />
+         <WritePost addPost={props.addPost} />
          <Divider my="sm" />
          {postElements}
       </div>

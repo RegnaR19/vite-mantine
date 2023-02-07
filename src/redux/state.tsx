@@ -1,6 +1,7 @@
 import naruto from "../assets/naruto.jpg";
 import saske from "../assets/saske.jpg";
 import rem from "../assets/rem.webp";
+import { rerenderEntireTree } from "../render";
 
 let state = {
    dialogsPage: {
@@ -23,12 +24,16 @@ let state = {
    }
 }
 
-export let addDialogs: any = (newDialogs: any) => {
+export let addPost: any = (postMessage: string) => {
    let newPost = {
       id: 4,
-      name: newDialogs
+      post: "Новый пост",
+      message: postMessage,
+      likescount: 0,
+      img: rem
    }
-   state.dialogsPage.dialogs.push(newPost)
+   state.postPage.posts.push(newPost)
+   rerenderEntireTree(state);
 }
 
 export default state

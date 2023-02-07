@@ -1,6 +1,4 @@
-import ReactDOM from "react-dom/client";
-import App from "./App";
 import state from "./redux/state";
+import { rerenderEntireTree } from "./render";
 
-ReactDOM.createRoot(document.getElementById("root")!)
-   .render(<App state={state} />);
+rerenderEntireTree(state);

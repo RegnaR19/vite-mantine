@@ -3,13 +3,17 @@ import { Button, Textarea } from "@mantine/core";
 import { IconPencilPlus } from "@tabler/icons";
 import { useRef } from "react";
 
-const WritePost = () => {
+type Props = {
+   addPost: any
+}
+
+const WritePost:React.FC<Props> = ({...props}) => {
 
    let newPostElement = useRef<HTMLTextAreaElement>(null);
 
    let addPost = () => {
       if (newPostElement.current !== null) {
-         alert(newPostElement.current.value)
+         props.addPost(newPostElement.current.value)
       }
    }
 
