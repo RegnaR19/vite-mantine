@@ -15,9 +15,7 @@ import VideoPage from "./components/Video/VideoPage";
 import AccountMenu from "./components/Profile/AccountMenu";
 
 type Props = {
-   dialogs?: any,
-   messages?: any,
-   state: any
+   state?: any
 }
 
 const App: React.FC<Props> = ({ ...props }) => {
@@ -35,7 +33,8 @@ const App: React.FC<Props> = ({ ...props }) => {
                   <div className={s.col3}><Sidebar /></div>
                   <div className={s.col2}>
                      <Routes>
-                        <Route path="/profile" element={<MainProfile />} />
+                        <Route path="/profile" element={<MainProfile
+                           state={props.state.postPage} />} />
                         <Route path="/messages" element={<Dialogs
                            state={props.state.dialogsPage} />} />
                         <Route path="/news" element={<NewsPage />} />

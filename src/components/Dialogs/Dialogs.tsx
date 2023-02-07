@@ -4,8 +4,6 @@ import Messages from './Messages/MessagesLink';
 import { Grid } from '@mantine/core';
 
 type Props = {
-   dialogs?: any,
-   messages?: any,
    state: any
 }
 

@@ -2,11 +2,11 @@ import { Card, Image, Text, Badge, Button, Group } from '@mantine/core';
 import s from './Post.module.css'
 
 type Props = {
-    id?: number,
-    header?: string,
-    message?: string,
-    likescount?: number,
-    img?: string
+    id: number,
+    header: string,
+    message: string,
+    likescount: number,
+    img: string
 }
 
 const Cards: React.FC<Props> = ({ id, header, message, likescount, img }) => {
