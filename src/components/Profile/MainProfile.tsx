@@ -9,30 +9,35 @@ import WritePost from './WritePost';
 type Props = {
    dialogs?: any,
    messages?: any,
-   state: any,
-   addPost: any
+   addPost: any,
+   postPage: any,
+   state?: any,
+   newPostText: any,
+   updateNewPostText?: any
 }
 
 const MainProfile: React.FC<Props> = ({ ...props }) => {
 
    let postElements =
-      props.state.posts.map((p: any) =>
+      props.postPage.posts.map((p: any) =>
          <Cards id={p.id} header={p.post} message={p.message}
             likescount={p.likescount} img={p.img} />)
 
    return (
       <div>
          <HeaderImg />
-         <Divider my="sm" />
+         {/* <Divider my="sm" />
          <Grid>
             <Grid.Col span="content"><Avatar /></Grid.Col>
             <Grid.Col span="content">
                <ProfileInfo name="Вадим" age="27" professional="реактивист"
                   city="Альменево" />
             </Grid.Col>
-         </Grid>
+         </Grid> */}
          <Divider my="sm" />
-         <WritePost addPost={props.addPost} />
+         <WritePost addPost={props.addPost}
+         newPostText={props.newPostText} 
+         updateNewPostText={props.updateNewPostText} />
          <Divider my="sm" />
          {postElements}
       </div>

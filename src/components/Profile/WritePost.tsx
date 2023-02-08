@@ -4,7 +4,11 @@ import { IconPencilPlus } from "@tabler/icons";
 import { useRef } from "react";
 
 type Props = {
-   addPost: any
+   addPost: any,
+   newPostText: any,
+   postPage?: any,
+   state?: any,
+   updateNewPostText?: any
 }
 
 const WritePost:React.FC<Props> = ({...props}) => {
@@ -17,6 +21,12 @@ const WritePost:React.FC<Props> = ({...props}) => {
       }
    }
 
+   let onPostChange = () => {
+      if (newPostElement.current !== null) {
+         props.updateNewPostText(newPostElement.current.value)
+      }
+   }
+
    return (
       <div>
          <b>Опубликовать новую запись</b>
@@ -24,8 +34,8 @@ const WritePost:React.FC<Props> = ({...props}) => {
          <Textarea ref={newPostElement}
             placeholder="Дуров, верни стену!"
             autosize
-            minRows={2}
-            size="md"
+            minRows={2} onChange={onPostChange}
+            size="md" value={props.newPostText}
          />
          <div style={{ marginBottom: 10 }} />
          <Button onClick={addPost} variant="gradient" leftIcon={<IconPencilPlus />}

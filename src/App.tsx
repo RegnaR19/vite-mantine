@@ -16,7 +16,10 @@ import AccountMenu from "./components/Profile/AccountMenu";
 
 type Props = {
    state?: any,
-   addPost?: any
+   addPost?: any,
+   postPage?: any,
+   newPostText?: any,
+   updateNewPostText?: any
 }
 
 const App: React.FC<Props> = ({ ...props }) => {
@@ -35,9 +38,12 @@ const App: React.FC<Props> = ({ ...props }) => {
                   <div className={s.col2}>
                      <Routes>
                         <Route path="/profile" element={<MainProfile
-                           state={props.state.postPage} addPost={props.addPost} />} />
+                           postPage={props.state.postPage} addPost={props.addPost}
+                           newPostText={props.state.postPage.newPostText}
+                           updateNewPostText={props.updateNewPostText}
+                           /> } />
                         <Route path="/messages" element={<Dialogs
-                           state={props.state.dialogsPage} />} />
+                           dialogsPage={props.state.dialogsPage} />} />
                         <Route path="/news" element={<NewsPage />} />
                         <Route path="/music" element={<MusicPage />} />
                         <Route path="/settings" element={<SettingsPage />} />

@@ -4,17 +4,17 @@ import Messages from './Messages/MessagesLink';
 import { Grid } from '@mantine/core';
 
 type Props = {
-   state: any
+   dialogsPage: any
 }
 
 const Dialogs: React.FC<Props> = ({ ...props }) => {
 
    let dialogsElements =
-      props.state.dialogs.map((e: any) => <DialogItem id={e.id}
+      props.dialogsPage.dialogs.map((e: any) => <DialogItem id={e.id}
          name={e.name} />)
-         
+
    let messagesElements =
-      props.state.messages.map((e: any) => <Messages id={e.id}
+      props.dialogsPage.messages.map((e: any) => <Messages id={e.id}
          message={e.message} path={e.path} />)
 
    return (

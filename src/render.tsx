@@ -1,8 +1,9 @@
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { addPost } from "./redux/state";
+import { addPost, updateNewPostText } from "./redux/state";
 
+const root = ReactDOM.createRoot(document.getElementById("root")!)
 export let rerenderEntireTree = (state: any) => {
-    ReactDOM.createRoot(document.getElementById("root")!)
-        .render(<App state={state} addPost={addPost} />);
+   root.render(<App state={state} addPost={addPost}
+      updateNewPostText={updateNewPostText} />);
 }
