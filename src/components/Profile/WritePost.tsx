@@ -19,6 +19,9 @@ const WritePost: React.FC<Props> = ({ ...props }) => {
       if (newPostElement.current !== null) {
          props.addPost(newPostElement.current.value)
       }
+      else {
+        
+      }
    }
 
    let onPostChange = () => {

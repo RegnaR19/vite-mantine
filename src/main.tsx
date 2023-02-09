@@ -9,7 +9,6 @@ let rerenderEntireTree = (state: any) => {
       updateNewPostText={updateNewPostText} />);
 }
 
-
 rerenderEntireTree(state);
 
 subscribe(rerenderEntireTree)

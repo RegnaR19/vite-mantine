@@ -3,7 +3,7 @@ import saske from "../assets/saske2.jpg";
 import rem from "../assets/rem.webp";
 
 let rerenderEntireTree = () => {
-
+   console.log('hi')
 }
 
 let state = {
