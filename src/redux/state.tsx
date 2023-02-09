@@ -1,7 +1,10 @@
 import naruto from "../assets/naruto.jpg";
-import saske from "../assets/saske.jpg";
+import saske from "../assets/saske2.jpg";
 import rem from "../assets/rem.webp";
-import { rerenderEntireTree } from "../render";
+
+let rerenderEntireTree = () => {
+
+}
 
 let state = {
    dialogsPage: {
@@ -26,21 +29,26 @@ let state = {
    }
 }
 
-export let addPost: any = (postMessage: string) => {
+export const addPost: any = () => {
    let newPost = {
       id: 4,
       post: "Новый пост",
-      message: postMessage,
+      message: state.postPage.newPostText,
       likescount: 0,
       img: rem
    }
    state.postPage.posts.push(newPost)
-   rerenderEntireTree(state)
+   state.postPage.newPostText = ''
+   rerenderEntireTree()
 }
 
-export let updateNewPostText: any = (newText: any) => {
+export const updateNewPostText: any = (newText: any) => {
    state.postPage.newPostText = newText
-   rerenderEntireTree(state)
+   rerenderEntireTree()
+}
+
+export const subscribe = (observer: any) => {
+   rerenderEntireTree = observer;
 }
 
 export default state

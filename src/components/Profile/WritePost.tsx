@@ -11,7 +11,7 @@ type Props = {
    updateNewPostText?: any
 }
 
-const WritePost:React.FC<Props> = ({...props}) => {
+const WritePost: React.FC<Props> = ({ ...props }) => {
 
    let newPostElement = useRef<HTMLTextAreaElement>(null);
 
