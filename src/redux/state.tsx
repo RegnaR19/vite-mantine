@@ -50,6 +50,6 @@ let Store = {
    subscribe(observer: any) {
       this._callSubscriber = observer;
    }
-}
+} 
 
 export default Store
