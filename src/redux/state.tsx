@@ -29,9 +29,10 @@ let Store = {
       return this._state
    },
    _callSubscriber() {
-      return this._state
+
    },
    addPost() {
+      debugger
       let newPost = {
          id: 4,
          post: "Новый пост",
@@ -50,6 +51,6 @@ let Store = {
    subscribe(observer: any) {
       this._callSubscriber = observer;
    }
-} 
+}
 
 export default Store

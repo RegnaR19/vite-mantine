@@ -9,10 +9,10 @@ import WritePost from './WritePost';
 type Props = {
    dialogs?: any,
    messages?: any,
-   addPost: any,
-   postPage: any,
+   addPost?: any,
+   postPage?: any,
    state?: any,
-   newPostText: any,
+   newPostText?: any,
    updateNewPostText?: any
 }
 

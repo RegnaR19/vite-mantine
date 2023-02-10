@@ -4,8 +4,8 @@ import { IconPencilPlus } from "@tabler/icons";
 import { useRef } from "react";
 
 type Props = {
-   addPost: any,
-   newPostText: any,
+   addPost?: any,
+   newPostText?: any,
    postPage?: any,
    state?: any,
    updateNewPostText?: any
@@ -18,9 +18,6 @@ const WritePost: React.FC<Props> = ({ ...props }) => {
    let addPost = () => {
       if (newPostElement.current !== null) {
          props.addPost(newPostElement.current.value)
-      }
-      else {
-        
       }
    }
 
