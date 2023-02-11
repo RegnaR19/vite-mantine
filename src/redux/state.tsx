@@ -28,28 +28,30 @@ let Store = {
    getState() {
       return this._state
    },
-   _callSubscriber() {
-
-   },
-   addPost() {
-      debugger
-      let newPost = {
-         id: 4,
-         post: "Новый пост",
-         message: this._state.postPage.newPostText,
-         likescount: 0,
-         img: rem
-      }
-      this._state.postPage.posts.push(newPost)
-      this._state.postPage.newPostText = ''
-      this._callSubscriber(this._state)
-   },
-   updateNewPostText(newText: any) {
-      this._state.postPage.newPostText = newText
-      this._callSubscriber(this._state)
-   },
    subscribe(observer: any) {
       this._callSubscriber = observer;
+   },
+   _callSubscriber() {
+      console.log('changed')
+   },
+
+   dispatch(action: any) {
+      if (action.type === 'ADD-POST') {
+         let newPost = {
+            id: 4,
+            post: "Новый пост",
+            message: this._state.postPage.newPostText,
+            likescount: 0,
+            img: rem
+         }
+         this._state.postPage.posts.push(newPost)
+         this._state.postPage.newPostText = ''
+         this._callSubscriber(this._state)
+      }
+      else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+         this._state.postPage.newPostText = action.newText
+         this._callSubscriber(this._state)
+      }
    }
 }
 
