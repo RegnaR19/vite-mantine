@@ -39,7 +39,7 @@ const App: React.FC<Props> = ({ ...props }) => {
                            dispatch={props.dispatch}
                            /> } />
                         <Route path="messages" element={<Dialogs
-                           dialogsPage={props._state.dialogsPage} />} />
+                           dialogsPage={props.state.dialogsPage} />} />
                         <Route path="news" element={<NewsPage />} />
                         <Route path="music" element={<MusicPage />} />
                         <Route path="settings" element={<SettingsPage />} />
