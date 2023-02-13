@@ -1,8 +1,11 @@
 import naruto from "../assets/naruto.jpg";
-import saske from "../assets/saske2.jpg";
 import rem from "../assets/rem.webp";
+import saske from "../assets/saske2.jpg";
 
-let Store = {
+const ADD_POST = 'ADD-POST'
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+
+let store = {
    _state: {
       dialogsPage: {
          dialogs: [
@@ -28,28 +31,48 @@ let Store = {
    getState() {
       return this._state
    },
-   _callSubscriber() {
-      return this._state
+   _callSubscriber(_state:any) {
+
    },
-   addPost() {
+   _addPost() {
       let newPost = {
          id: 4,
          post: "Новый пост",
          message: this._state.postPage.newPostText,
-         likescount: 0,
+         likescount: 40,
          img: rem
       }
       this._state.postPage.posts.push(newPost)
       this._state.postPage.newPostText = ''
       this._callSubscriber(this._state)
    },
-   updateNewPostText(newText: any) {
+   _updateNewPostText(newText: any) {
       this._state.postPage.newPostText = newText
       this._callSubscriber(this._state)
    },
+   dispatch(action: any) {
+      if (action.type === ADD_POST) {
+         this._addPost()
+      }
+      else if (action.type === UPDATE_NEW_POST_TEXT) {
+         this._updateNewPostText(action.newText)
+      }
+   },
    subscribe(observer: any) {
       this._callSubscriber = observer;
-   }
-} 
+   },
+}
 
-export default Store
+export const addPostActionCreator = () => {
+   return {
+      type: ADD_POST
+   }
+}
+
+export const updateNewPostTextActionCreator = (text: any) => {
+   return {
+      type: UPDATE_NEW_POST_TEXT, newText: text
+   }
+}
+
+export default store

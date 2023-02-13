@@ -7,13 +7,8 @@ import { Divider, Grid } from '@mantine/core';
 import WritePost from './WritePost';
 
 type Props = {
-   dialogs?: any,
-   messages?: any,
-   addPost: any,
-   postPage: any,
-   state?: any,
-   newPostText: any,
-   updateNewPostText?: any
+   dispatch?: any,
+   postPage?: any
 }
 
 const MainProfile: React.FC<Props> = ({ ...props }) => {
@@ -35,9 +30,7 @@ const MainProfile: React.FC<Props> = ({ ...props }) => {
             </Grid.Col>
          </Grid> */}
          <Divider my="sm" />
-         <WritePost addPost={props.addPost}
-         newPostText={props.newPostText} 
-         updateNewPostText={props.updateNewPostText} />
+         <WritePost dispatch={props.dispatch} />
          <Divider my="sm" />
          {postElements}
       </div>

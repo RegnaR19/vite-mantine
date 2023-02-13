@@ -1,14 +1,13 @@
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import Store from "./redux/state";
+import store from "./redux/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root")!)
 let rerenderEntireTree = (state: any) => {
    root.render(<App state={state}
-      addPost={Store.addPost.bind(Store)}
-      updateNewPostText={Store.updateNewPostText.bind(Store)} />);
+      dispatch={store.dispatch.bind(store)} />);
 }
 
-rerenderEntireTree(Store.getState());
+rerenderEntireTree(store.getState());
 
-Store.subscribe(rerenderEntireTree)
+store.subscribe(rerenderEntireTree)

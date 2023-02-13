@@ -2,13 +2,11 @@
 import { Button, Textarea } from "@mantine/core";
 import { IconPencilPlus } from "@tabler/icons";
 import { useRef } from "react";
+import { addPostActionCreator, updateNewPostTextActionCreator } from "../../redux/store";
 
 type Props = {
-   addPost: any,
-   newPostText: any,
-   postPage?: any,
-   state?: any,
-   updateNewPostText?: any
+   dispatch?: any,
+   newPostText?: any
 }
 
 const WritePost: React.FC<Props> = ({ ...props }) => {
@@ -17,16 +15,15 @@ const WritePost: React.FC<Props> = ({ ...props }) => {
 
    let addPost = () => {
       if (newPostElement.current !== null) {
-         props.addPost(newPostElement.current.value)
-      }
-      else {
-        
+         props.dispatch(addPostActionCreator)
       }
    }
 
    let onPostChange = () => {
       if (newPostElement.current !== null) {
-         props.updateNewPostText(newPostElement.current.value)
+         let text = newPostElement.current.value
+         let action = updateNewPostTextActionCreator(text)
+         props.dispatch(action)
       }
    }
 
