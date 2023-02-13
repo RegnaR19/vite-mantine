@@ -1,15 +1,15 @@
 import { ThemeProvider } from "./ThemeProvider";
+import { Text } from '@mantine/core';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import s from './App.module.css'
 import FooterOne from "./components/Navbar/Footer";
 import MainProfile from './components/Profile/MainProfile';
 import Navigation from './components/Navbar/Navigation';
 import Dialogs from './components/Dialogs/Dialogs';
 import NewsPage from "./components/News/NewsPage";
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import MusicPage from './components/Music/MusicPage';
 import SettingsPage from './components/Settings/SettingsPage';
 import TestPage from './components/Settings/TestPage';
-import { Text } from '@mantine/core';
-import s from './App.module.css'
 import Sidebar from "./components/Navbar/Sidebar";
 import VideoPage from "./components/Video/VideoPage";
 import AccountMenu from "./components/Profile/AccountMenu";
@@ -38,13 +38,13 @@ const App: React.FC<Props> = ({ ...props }) => {
                            postPage={props.state.postPage}
                            dispatch={props.dispatch}
                            /> } />
-                        <Route path="/messages" element={<Dialogs
-                           dialogsPage={props.state.dialogsPage} />} />
-                        <Route path="/news" element={<NewsPage />} />
-                        <Route path="/music" element={<MusicPage />} />
-                        <Route path="/settings" element={<SettingsPage />} />
-                        <Route path="/test" element={<TestPage />} />
-                        <Route path="/video" element={<VideoPage />} />
+                        <Route path="messages" element={<Dialogs
+                           dialogsPage={props._state.dialogsPage} />} />
+                        <Route path="news" element={<NewsPage />} />
+                        <Route path="music" element={<MusicPage />} />
+                        <Route path="settings" element={<SettingsPage />} />
+                        <Route path="test" element={<TestPage />} />
+                        <Route path="video" element={<VideoPage />} />
                      </Routes>
                   </div>
                </div>

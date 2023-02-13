@@ -20,7 +20,7 @@ const MainProfile: React.FC<Props> = ({ ...props }) => {
 
    return (
       <div>
-         <HeaderImg />
+         <HeaderImg /> 
          {/* <Divider my="sm" />
          <Grid>
             <Grid.Col span="content"><Avatar /></Grid.Col>
