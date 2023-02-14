@@ -60,7 +60,7 @@ let store = {
       this._callSubscriber(this._state)
    },
 
-   _sendMessage(textMessage: any) {
+   _updateSendMessage(textMessage: any) {
       this._state.dialogsPage.sendMessage = textMessage
       this._callSubscriber(this._state)
    },
