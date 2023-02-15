@@ -1,5 +1,4 @@
 import { ThemeProvider } from "./ThemeProvider";
-import { Text } from '@mantine/core';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import s from './App.module.css'
 import FooterOne from "./components/Navbar/Footer";
@@ -16,46 +15,45 @@ import AccountMenu from "./components/Profile/AccountMenu";
 
 type Props = {
    state?: any,
-   dispatch?: any
+   dispatch?: any,
+   store: any
 }
 
 const App: React.FC<Props> = ({ ...props }) => {
    return (
       <ThemeProvider>
          <BrowserRouter>
-            <Text size="xl" weight={300}>
-               <div className={s.layout}>
-                  <div className={s.col2}>
-                     <AccountMenu />
-                  </div>
+            <div className={s.layout}>
+               <div className={s.col2}>
+                  <AccountMenu />
                </div>
-               <div className={s.layout}>
-                  <div className={s.col1}><Navigation /></div>
-                  <div className={s.col3}><Sidebar /></div>
-                  <div className={s.col2}>
-                     <Routes>
-                        <Route path="/profile" element={<MainProfile
-                           postPage={props.state.postPage}
-                           dispatch={props.dispatch}
-                           /> } />
-                        <Route path="messages" element={<Dialogs
-                           dialogsPage={props.state.dialogsPage} />} />
-                        <Route path="news" element={<NewsPage />} />
-                        <Route path="music" element={<MusicPage />} />
-                        <Route path="settings" element={<SettingsPage />} />
-                        <Route path="test" element={<TestPage />} />
-                        <Route path="video" element={<VideoPage />} />
-                     </Routes>
-                  </div>
+            </div>
+            <div className={s.layout}>
+               <div className={s.col1}><Navigation /></div>
+               <div className={s.col3}><Sidebar /></div>
+               <div className={s.col2}>
+                  <Routes>
+                     <Route path="/profile" element={<MainProfile
+                        postPage={props.state.postPage}
+                        dispatch={props.dispatch}
+                     />} />
+                     <Route path="messages" element={<Dialogs
+                        store={props.store} />} />
+                     <Route path="news" element={<NewsPage />} />
+                     <Route path="music" element={<MusicPage />} />
+                     <Route path="settings" element={<SettingsPage />} />
+                     <Route path="test" element={<TestPage />} />
+                     <Route path="video" element={<VideoPage />} />
+                  </Routes>
                </div>
-               <div className={s.layout}>
-                  <div className={s.col1_noborder}></div>
-                  <div className={s.col3_noborder}></div>
-                  <div className={s.col2}>
-                     <div className={s.header}><FooterOne /></div>
-                  </div>
+            </div>
+            <div className={s.layout}>
+               <div className={s.col1_noborder}></div>
+               <div className={s.col3_noborder}></div>
+               <div className={s.col2}>
+                  <div className={s.header}><FooterOne /></div>
                </div>
-            </Text>
+            </div>
          </BrowserRouter>
       </ThemeProvider>
    );

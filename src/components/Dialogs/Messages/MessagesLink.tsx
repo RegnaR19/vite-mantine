@@ -4,15 +4,14 @@ import { NavLink } from 'react-router-dom';
 
 type Props = {
    id?: number,
-   message?: string,
-   path: string
+   message?: string
 }
 
-const Messages: React.FC<Props> = ({ message, path }) => {
+const Messages: React.FC<Props> = ({ message }) => {
 
    return (
       <>
-         <div><IconSend size={20}/> <NavLink to={path}>{message}</NavLink></div>
+         <div><IconSend size={20}/> <NavLink to="#">{message}</NavLink></div>
       </>
    )
 }

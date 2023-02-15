@@ -2,7 +2,7 @@
 import { Button, Textarea } from "@mantine/core";
 import { IconPencilPlus } from "@tabler/icons";
 import { useRef } from "react";
-import { addPostActionCreator, updateNewPostTextActionCreator } from "../../redux/store";
+import { addPostCreator, updateNewPostTextCreator } from "../../redux/store";
 
 type Props = {
    dispatch?: any,
@@ -15,20 +15,20 @@ const WritePost: React.FC<Props> = ({ ...props }) => {
 
    let addPost = () => {
       if (newPostElement.current !== null) {
-         props.dispatch(addPostActionCreator)
+         props.dispatch(addPostCreator)
       }
    }
 
    let onPostChange = () => {
       if (newPostElement.current !== null) {
          let text = newPostElement.current.value
-         let action = updateNewPostTextActionCreator(text)
+         let action = updateNewPostTextCreator(text)
          props.dispatch(action)
       }
    }
 
    return (
-      <div>
+      <>
          <b>Опубликовать новую запись</b>
          <div style={{ marginBottom: 10 }} />
          <Textarea ref={newPostElement}
@@ -43,7 +43,7 @@ const WritePost: React.FC<Props> = ({ ...props }) => {
             Опубликовать
          </Button>
          <div style={{ marginBottom: 10 }} />
-      </div>
+      </>
    )
 }
 

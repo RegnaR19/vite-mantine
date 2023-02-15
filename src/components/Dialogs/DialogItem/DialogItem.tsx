@@ -1,4 +1,5 @@
 // ссылка на диалог
+import { Button } from '@mantine/core';
 import { NavLink } from 'react-router-dom';
 
 type Props = {
@@ -7,12 +8,18 @@ type Props = {
    id: number
 }
 
-const DialogItem:React.FC <Props> = ({id, name}) => {
+const DialogItem: React.FC<Props> = ({ id, name }) => {
 
    let path = "/dialogs/" + id;
 
    return (
-      <div><NavLink to={path}>{name}</NavLink></div>
+      <div>
+         <Button.Group orientation="vertical">
+            <Button variant="default">
+               <NavLink to={path}>{name}</NavLink>
+            </Button>
+         </Button.Group>
+      </div>
    )
 }
 

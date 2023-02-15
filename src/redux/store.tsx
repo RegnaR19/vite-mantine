@@ -2,11 +2,13 @@ import naruto from "../assets/naruto.jpg";
 import rem from "../assets/rem.webp";
 import saske from "../assets/saske2.jpg";
 
+// задаем константы
 const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY'
 const SEND_MESSAGE = 'SEND_MESSAGE'
 
+// задаем store
 let store = {
    _state: {
       dialogsPage: {
@@ -16,9 +18,9 @@ let store = {
             { id: 3, name: "Руслан" }
          ],
          messages: [
-            { id: 1, message: "Hi", path: "/profile" },
-            { id: 2, message: "How are you? Im in Almenevo today", path: "/profile" },
-            { id: 3, message: "Hello", path: "/profile" },
+            { id: 1, message: "Hi" },
+            { id: 2, message: "How are you? Im in Almenevo today" },
+            { id: 3, message: "Hello" },
          ],
          newMessageBody: ""
       },
@@ -31,12 +33,15 @@ let store = {
          newPostText: "dattebayo"
       }
    },
+   // задаем возврат состояния
    getState() {
       return this._state
    },
+   // вызов подписчика
    _callSubscriber(_state: any) {
       console.log('State was changed')
    },
+   // добавляем посты
    _addPost() {
       let newPost = {
          id: 4,
@@ -45,11 +50,15 @@ let store = {
          likescount: 40,
          img: rem
       }
+      // пушим пост
       this._state.postPage.posts.push(newPost)
+      // обнуляем пост
       this._state.postPage.newPostText = ''
+      // задаем изменение состояния на странице
       this._callSubscriber(this._state)
    },
 
+   // передаем переменные из стора в новые переменные
    _updateNewPostText(newText: any) {
       this._state.postPage.newPostText = newText
       this._callSubscriber(this._state)
@@ -60,11 +69,7 @@ let store = {
       this._callSubscriber(this._state)
    },
 
-   _updateSendMessage(textMessage: any) {
-      this._state.dialogsPage.sendMessage = textMessage
-      this._callSubscriber(this._state)
-   },
-
+   // делаем диспатч экшенов по типу
    dispatch(action: any) {
       if (action.type === ADD_POST) {
          this._addPost()
@@ -76,7 +81,10 @@ let store = {
          this._updateNewMessageBody(action.body)
       }
       else if (action.type === SEND_MESSAGE) {
-         this._updateSendMessage(action.textMessage)
+         let body = this._state.dialogsPage.newMessageBody
+         this._state.dialogsPage.newMessageBody = ""
+         this._state.dialogsPage.messages.push({ id: 4, message: body })
+         this._callSubscriber(this._state)
       }
    },
    subscribe(observer: any) {
@@ -84,15 +92,27 @@ let store = {
    },
 }
 
-export const addPostActionCreator = () => {
+export const addPostCreator = () => {
    return {
       type: ADD_POST
    }
 }
 
-export const updateNewPostTextActionCreator = (text: any) => {
+export const updateNewPostTextCreator = (text: any) => {
    return {
       type: UPDATE_NEW_POST_TEXT, newText: text
+   }
+}
+
+export const sendMessageCreator = () => {
+   return {
+      type: SEND_MESSAGE
+   }
+}
+
+export const updateNewMessageBodyCreator = (body: any) => {
+   return {
+      type: UPDATE_NEW_MESSAGE_BODY, body: body
    }
 }
 
