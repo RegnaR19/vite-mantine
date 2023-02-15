@@ -23,14 +23,14 @@ const MainProfile: React.FC<Props> = ({ ...props }) => {
    return (
       <div>
          <HeaderImg />
-         {/* <Divider my="sm" />
+         <Divider my="sm" />
          <Grid>
             <Grid.Col span="content"><Avatar /></Grid.Col>
             <Grid.Col span="content">
                <ProfileInfo name="Вадим" age="27" professional="реактивист"
                   city="Альменево" />
             </Grid.Col>
-         </Grid> */}
+         </Grid>
          <Divider my="sm" />
          <WritePost dispatch={props.dispatch} store={props.store} />
          <Divider my="sm" />
