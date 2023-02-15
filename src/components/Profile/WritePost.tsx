@@ -1,7 +1,6 @@
 // страница написания постов
 import { Button, Textarea } from "@mantine/core";
 import { IconPencilPlus } from "@tabler/icons";
-import { useRef } from "react";
 import { addPostCreator, updateNewPostTextCreator } from "../../redux/store";
 
 type Props = {
@@ -14,35 +13,30 @@ const WritePost: React.FC<Props> = ({ ...props }) => {
 
    let state = props.store.getState().postPage
 
-   let newPostElement = useRef<HTMLTextAreaElement>(null);
-
    let newPostText = state.newPostText
 
-   let addPost = () => {
-      if (newPostElement.current !== null) {
-         props.dispatch(addPostCreator)
-      }
+   let onPostChange = (e: any) => {
+      let newText = e.target.value
+      props.dispatch(updateNewPostTextCreator(newText))
    }
 
-   let onPostChange = () => {
-      if (newPostElement.current !== null) {
-         let text = newPostElement.current.value
-         let action = updateNewPostTextCreator(text)
-         props.dispatch(action)
-      }
+   let addPost = () => {
+      props.store.dispatch(addPostCreator())
    }
 
    return (
       <>
          <b>Опубликовать новую запись</b>
          <div style={{ marginBottom: 10 }} />
-         <Textarea ref={newPostElement}
+         <Textarea
             placeholder="Дуров, верни стену!"
-            autosize
-            minRows={2} onChange={onPostChange}
-            size="md" value={newPostText}
+            autosize size="md"
+            minRows={2}
+            onChange={onPostChange}
+            value={newPostText}
          />
          <div style={{ marginBottom: 10 }} />
+
          <Button onClick={addPost} variant="gradient"
             leftIcon={<IconPencilPlus />}
             gradient={{ from: 'indigo', to: 'cyan' }}>

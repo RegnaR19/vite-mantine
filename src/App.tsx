@@ -14,7 +14,7 @@ import VideoPage from "./components/Video/VideoPage";
 import AccountMenu from "./components/Profile/AccountMenu";
 
 type Props = {
-   dispatch?: any,
+   dispatch: any,
    store: any
 }
 

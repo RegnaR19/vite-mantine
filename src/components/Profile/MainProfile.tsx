@@ -32,7 +32,7 @@ const MainProfile: React.FC<Props> = ({ ...props }) => {
             </Grid.Col>
          </Grid> */}
          <Divider my="sm" />
-         <WritePost dispatch={props.dispatch} />
+         <WritePost dispatch={props.dispatch} store={props.store} />
          <Divider my="sm" />
          {postElements}
       </div>

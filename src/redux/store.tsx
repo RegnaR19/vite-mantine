@@ -1,10 +1,11 @@
+import { count } from "console";
 import naruto from "../assets/naruto.jpg";
 import rem from "../assets/rem.webp";
 import saske from "../assets/saske2.jpg";
 
 // задаем константы
-const ADD_POST = 'ADD-POST'
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+const ADD_POST = 'ADD_POST'
+const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT'
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY'
 const SEND_MESSAGE = 'SEND_MESSAGE'
 
@@ -30,7 +31,7 @@ let store = {
             { id: 2, post: "Chidori!", message: "НАРУТО!!!11!", likescount: 1000, img: saske },
             { id: 3, post: "Rasengan!", message: "САСКЕ!!!11!", likescount: 5000, img: naruto },
          ],
-         newPostText: 'dattebayo'
+         newPostText: 'dattebayo naruto'
       }
    },
    // задаем возврат состояния
@@ -42,22 +43,28 @@ let store = {
       console.log('State was changed')
    },
    // добавляем посты
-   _addPost() {
+   _addPost(text: any) {
+      text = this._state.postPage.newPostText
       let newPost = {
          id: 4,
          post: "Новый пост",
-         message: this._state.postPage.newPostText,
+         message: text,
          likescount: 40,
          img: rem
       }
-      this._state.postPage.posts.push(newPost)
-      this._state.postPage.newPostText = ''
-      this._callSubscriber(this._state)
+      if (text != '') {
+         this._state.postPage.posts.push(newPost)
+         this._state.postPage.newPostText = ''
+         this._callSubscriber(this._state)
+      }
+
+      else if (text === '') {
+         this._callSubscriber(this._state)
+      }
    },
 
-   // передаем переменные из стора в новые переменные
-   _updateNewPostText(newText: any) {
-      this._state.postPage.newPostText = newText
+   _updateNewPostText(text: any) {
+      this._state.postPage.newPostText = text
       this._callSubscriber(this._state)
    },
 
@@ -80,10 +87,10 @@ let store = {
    // делаем диспатч экшенов по типу
    dispatch(action: any) {
       if (action.type === ADD_POST) {
-         this._addPost()
+         this._addPost(action.text)
       }
       else if (action.type === UPDATE_NEW_POST_TEXT) {
-         this._updateNewPostText(action.newText)
+         this._updateNewPostText(action.text)
       }
       else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
          this._updateNewMessageBody(action.body)
@@ -103,9 +110,9 @@ export const addPostCreator = () => {
    }
 }
 
-export const updateNewPostTextCreator = (newText: any) => {
+export const updateNewPostTextCreator = (text: any) => {
    return {
-      type: UPDATE_NEW_POST_TEXT, newText: newText
+      type: UPDATE_NEW_POST_TEXT, text: text
    }
 }
 
