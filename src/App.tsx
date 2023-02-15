@@ -14,7 +14,6 @@ import VideoPage from "./components/Video/VideoPage";
 import AccountMenu from "./components/Profile/AccountMenu";
 
 type Props = {
-   state?: any,
    dispatch?: any,
    store: any
 }
@@ -33,12 +32,12 @@ const App: React.FC<Props> = ({ ...props }) => {
                <div className={s.col3}><Sidebar /></div>
                <div className={s.col2}>
                   <Routes>
-                     <Route path="/profile" element={<MainProfile
-                        postPage={props.state.postPage}
+                     <Route path="profile" element={<MainProfile
+                        store={props.store}
                         dispatch={props.dispatch}
                      />} />
-                     <Route path="messages" element={<Dialogs
-                        store={props.store} />} />
+                     <Route path="messages" 
+                     element={<Dialogs store={props.store} />} />
                      <Route path="news" element={<NewsPage />} />
                      <Route path="music" element={<MusicPage />} />
                      <Route path="settings" element={<SettingsPage />} />

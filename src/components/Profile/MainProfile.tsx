@@ -8,19 +8,21 @@ import WritePost from './WritePost';
 
 type Props = {
    dispatch?: any,
-   postPage?: any
+   store?: any
 }
 
 const MainProfile: React.FC<Props> = ({ ...props }) => {
 
+   let state = props.store.getState().postPage
+
    let postElements =
-      props.postPage.posts.map((p: any) =>
+      state.posts.map((p: any) =>
          <Cards id={p.id} header={p.post} message={p.message}
             likescount={p.likescount} img={p.img} />)
 
    return (
       <div>
-         <HeaderImg /> 
+         <HeaderImg />
          {/* <Divider my="sm" />
          <Grid>
             <Grid.Col span="content"><Avatar /></Grid.Col>

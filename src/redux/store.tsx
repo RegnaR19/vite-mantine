@@ -22,7 +22,7 @@ let store = {
             { id: 2, message: "How are you? Im in Almenevo today" },
             { id: 3, message: "Hello" },
          ],
-         newMessageBody: ""
+         newMessageBody: 'Ку'
       },
       postPage: {
          posts: [
@@ -30,7 +30,7 @@ let store = {
             { id: 2, post: "Chidori!", message: "НАРУТО!!!11!", likescount: 1000, img: saske },
             { id: 3, post: "Rasengan!", message: "САСКЕ!!!11!", likescount: 5000, img: naruto },
          ],
-         newPostText: "dattebayo"
+         newPostText: 'dattebayo'
       }
    },
    // задаем возврат состояния
@@ -50,11 +50,8 @@ let store = {
          likescount: 40,
          img: rem
       }
-      // пушим пост
       this._state.postPage.posts.push(newPost)
-      // обнуляем пост
       this._state.postPage.newPostText = ''
-      // задаем изменение состояния на странице
       this._callSubscriber(this._state)
    },
 
@@ -67,6 +64,17 @@ let store = {
    _updateNewMessageBody(body: any) {
       this._state.dialogsPage.newMessageBody = body
       this._callSubscriber(this._state)
+   },
+   _updateSendMessage(body: any) {
+      body = this._state.dialogsPage.newMessageBody
+      if (body === '') {
+         this._callSubscriber(this._state)
+      }
+      else if (body != '') {
+         this._state.dialogsPage.messages.push({ id: 45, message: body })
+         this._state.dialogsPage.newMessageBody = ''
+         this._callSubscriber(this._state)
+      }
    },
 
    // делаем диспатч экшенов по типу
@@ -81,10 +89,7 @@ let store = {
          this._updateNewMessageBody(action.body)
       }
       else if (action.type === SEND_MESSAGE) {
-         let body = this._state.dialogsPage.newMessageBody
-         this._state.dialogsPage.newMessageBody = ""
-         this._state.dialogsPage.messages.push({ id: 4, message: body })
-         this._callSubscriber(this._state)
+         this._updateSendMessage(action.body)
       }
    },
    subscribe(observer: any) {
@@ -98,9 +103,9 @@ export const addPostCreator = () => {
    }
 }
 
-export const updateNewPostTextCreator = (text: any) => {
+export const updateNewPostTextCreator = (newText: any) => {
    return {
-      type: UPDATE_NEW_POST_TEXT, newText: text
+      type: UPDATE_NEW_POST_TEXT, newText: newText
    }
 }
 

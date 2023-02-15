@@ -6,12 +6,17 @@ import { addPostCreator, updateNewPostTextCreator } from "../../redux/store";
 
 type Props = {
    dispatch?: any,
-   newPostText?: any
+   newPostText?: any,
+   store?: any
 }
 
 const WritePost: React.FC<Props> = ({ ...props }) => {
 
+   let state = props.store.getState().postPage
+
    let newPostElement = useRef<HTMLTextAreaElement>(null);
+
+   let newPostText = state.newPostText
 
    let addPost = () => {
       if (newPostElement.current !== null) {
@@ -35,10 +40,11 @@ const WritePost: React.FC<Props> = ({ ...props }) => {
             placeholder="Дуров, верни стену!"
             autosize
             minRows={2} onChange={onPostChange}
-            size="md" value={props.newPostText}
+            size="md" value={newPostText}
          />
          <div style={{ marginBottom: 10 }} />
-         <Button onClick={addPost} variant="gradient" leftIcon={<IconPencilPlus />}
+         <Button onClick={addPost} variant="gradient"
+            leftIcon={<IconPencilPlus />}
             gradient={{ from: 'indigo', to: 'cyan' }}>
             Опубликовать
          </Button>

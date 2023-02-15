@@ -7,11 +7,11 @@ type Props = {
    message?: string
 }
 
-const Messages: React.FC<Props> = ({ message }) => {
+const Messages: React.FC<Props> = ({ id, message }) => {
 
    return (
       <>
-         <div><IconSend size={20}/> <NavLink to="#">{message}</NavLink></div>
+         <div><IconSend size={20}/> <NavLink to="#">{id}, {message}</NavLink></div>
       </>
    )
 }

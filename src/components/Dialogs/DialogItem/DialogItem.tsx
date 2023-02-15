@@ -10,13 +10,13 @@ type Props = {
 
 const DialogItem: React.FC<Props> = ({ id, name }) => {
 
-   let path = "/dialogs/" + id;
+   let path = "dialogs/" + id;
 
    return (
       <div>
          <Button.Group orientation="vertical">
             <Button variant="default">
-               <NavLink to={path}>{name}</NavLink>
+               <NavLink to={path}>{id}, {name}</NavLink>
             </Button>
          </Button.Group>
       </div>
