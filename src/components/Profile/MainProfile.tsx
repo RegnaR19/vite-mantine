@@ -13,7 +13,7 @@ type Props = {
 
 const MainProfile: React.FC<Props> = ({ ...props }) => {
 
-   let state = props.store.getState().postPage
+   let state = props.store.getState().profilePage
 
    let postElements =
       state.posts.map((p: any) =>

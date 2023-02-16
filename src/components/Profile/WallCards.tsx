@@ -14,9 +14,7 @@ const Cards: React.FC<Props> = ({ id, header, message, likescount, img }) => {
         <>
             <Card shadow="sm" p="lg" radius="md" withBorder className={s.item}>
                 <Card.Section className={s.item}>
-                    <Image className={s.item}
-                        src={img}
-                    />
+                    <Image className={s.item} src={img} />
                 </Card.Section>
 
                 <Group position="apart" mt="md" mb="xs">

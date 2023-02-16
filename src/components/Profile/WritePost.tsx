@@ -1,7 +1,7 @@
 // страница написания постов
 import { Button, Textarea } from "@mantine/core";
 import { IconPencilPlus } from "@tabler/icons";
-import { addPostCreator, updateNewPostTextCreator } from "../../redux/store";
+import { addPostCreator, updateNewPostTextCreator } from "../../redux/profileReducer";
 
 type Props = {
    dispatch?: any,
@@ -11,7 +11,7 @@ type Props = {
 
 const WritePost: React.FC<Props> = ({ ...props }) => {
 
-   let state = props.store.getState().postPage
+   let state = props.store.getState().profilePage
 
    let newPostText = state.newPostText
 

@@ -1,15 +1,9 @@
-import { count } from "console";
 import naruto from "../assets/naruto.jpg";
 import rem from "../assets/rem.webp";
 import saske from "../assets/saske2.jpg";
+import dialogsReducer from "./dialogsReducer";
+import profileReducer from "./profileReducer";
 
-// задаем константы
-const ADD_POST = 'ADD_POST'
-const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT'
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY'
-const SEND_MESSAGE = 'SEND_MESSAGE'
-
-// задаем store
 let store = {
    _state: {
       dialogsPage: {
@@ -25,7 +19,7 @@ let store = {
          ],
          newMessageBody: 'Ку'
       },
-      postPage: {
+      profilePage: {
          posts: [
             { id: 1, post: "Даттебайо", message: "Я тут новенькая", likescount: 300, img: rem },
             { id: 2, post: "Chidori!", message: "НАРУТО!!!11!", likescount: 1000, img: saske },
@@ -42,90 +36,16 @@ let store = {
    _callSubscriber(_state: any) {
       console.log('State was changed')
    },
-   // добавляем посты
-   _addPost(text: any) {
-      text = this._state.postPage.newPostText
-      let newPost = {
-         id: 4,
-         post: "Новый пост",
-         message: text,
-         likescount: 40,
-         img: rem
-      }
-      if (text != '') {
-         this._state.postPage.posts.push(newPost)
-         this._state.postPage.newPostText = ''
-         this._callSubscriber(this._state)
-      }
-
-      else if (text === '') {
-         this._callSubscriber(this._state)
-      }
-   },
-
-   _updateNewPostText(text: any) {
-      this._state.postPage.newPostText = text
-      this._callSubscriber(this._state)
-   },
-
-   _updateNewMessageBody(body: any) {
-      this._state.dialogsPage.newMessageBody = body
-      this._callSubscriber(this._state)
-   },
-   _updateSendMessage(body: any) {
-      body = this._state.dialogsPage.newMessageBody
-      if (body === '') {
-         this._callSubscriber(this._state)
-      }
-      else if (body != '') {
-         this._state.dialogsPage.messages.push({ id: 45, message: body })
-         this._state.dialogsPage.newMessageBody = ''
-         this._callSubscriber(this._state)
-      }
-   },
 
    // делаем диспатч экшенов по типу
    dispatch(action: any) {
-      if (action.type === ADD_POST) {
-         this._addPost(action.text)
-      }
-      else if (action.type === UPDATE_NEW_POST_TEXT) {
-         this._updateNewPostText(action.text)
-      }
-      else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-         this._updateNewMessageBody(action.body)
-      }
-      else if (action.type === SEND_MESSAGE) {
-         this._updateSendMessage(action.body)
-      }
+      this._state.profilePage = profileReducer(this._state.profilePage, action)
+      this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+      this._callSubscriber(this._state)
    },
    subscribe(observer: any) {
       this._callSubscriber = observer;
    },
-}
-
-export const addPostCreator = () => {
-   return {
-      type: ADD_POST
-   }
-}
-
-export const updateNewPostTextCreator = (text: any) => {
-   return {
-      type: UPDATE_NEW_POST_TEXT, text: text
-   }
-}
-
-export const sendMessageCreator = () => {
-   return {
-      type: SEND_MESSAGE
-   }
-}
-
-export const updateNewMessageBodyCreator = (body: any) => {
-   return {
-      type: UPDATE_NEW_MESSAGE_BODY, body: body
-   }
 }
 
 export default store

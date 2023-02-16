@@ -3,7 +3,7 @@ import DialogItem from './DialogItem/DialogItem';
 import Messages from './Messages/MessagesLink';
 import { Button, Grid, Textarea } from '@mantine/core';
 import { IconPencilPlus } from '@tabler/icons';
-import { sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/store';
+import { sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/dialogsReducer';
 
 type Props = {
    dialogsPage?: any,
