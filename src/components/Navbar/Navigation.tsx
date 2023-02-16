@@ -13,37 +13,37 @@ const Navigation = () => {
          <div className={s.link}>
             <NavLink to="/profile">
                <NavMantine
-                  icon={<IconHome2 size={18} stroke={1.5} color="orange"  />}
+                  icon={<IconHome2 size={18} stroke={1.5} />}
                   description='Стена' label="Профиль" />
             </NavLink>
             <NavLink to="/messages">
                <NavMantine
-                  icon={<IconAt size={18} stroke={1.5}  color="orange" />}
+                  icon={<IconAt size={18} stroke={1.5} />}
                   description='' label="Сообщения" />
             </NavLink>
             <NavLink to="/news">
                <NavMantine
-                  icon={<IconChevronRight size={18} stroke={1.5} color="orange" />}
+                  icon={<IconChevronRight size={18} stroke={1.5} />}
                   description='' label="Новости" />
             </NavLink>
             <NavLink to="/music">
                <NavMantine
-                  icon={<IconActivity size={18} stroke={1.5} color="orange" />}
+                  icon={<IconActivity size={18} stroke={1.5} />}
                   description='' label="Музыка" />
             </NavLink>
             <NavLink to="/video">
                <NavMantine
-                  icon={<IconBadge4k size={18} stroke={1.5} color="orange" />}
+                  icon={<IconBadge4k size={18} stroke={1.5} />}
                   label="Видео" />
             </NavLink>
             <NavLink to="/settings">
                <NavMantine
-                  icon={<IconSettings size={18} stroke={1.5} color="orange" />}
+                  icon={<IconSettings size={18} stroke={1.5} />}
                   description='' label="Настройки" />
             </NavLink>
             <NavLink to="/test">
                <NavMantine
-                  icon={<IconCircleOff size={18} stroke={1.5} color="orange" />}
+                  icon={<IconCircleOff size={18} stroke={1.5} />}
                   description='Эксперименты' label="Тестовая" />
             </NavLink>
          </div>

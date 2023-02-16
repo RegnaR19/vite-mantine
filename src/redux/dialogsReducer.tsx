@@ -2,19 +2,17 @@ const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY'
 const SEND_MESSAGE = 'SEND_MESSAGE'
 
 let initialState = {
-   dialogsPage: {
-      dialogs: [
-         { id: 1, name: "Валера" },
-         { id: 2, name: "Димон" },
-         { id: 3, name: "Руслан" }
-      ],
-      messages: [
-         { id: 1, message: "Hi" },
-         { id: 2, message: "How are you? Im in Almenevo today" },
-         { id: 3, message: "Hello" },
-      ],
-      newMessageBody: 'Ку'
-   }
+   dialogs: [
+      { id: 1, name: "Валера" },
+      { id: 2, name: "Димон" },
+      { id: 3, name: "Руслан" }
+   ],
+   messages: [
+      { id: 1, message: "Hi" },
+      { id: 2, message: "How are you? Im in Almenevo today" },
+      { id: 3, message: "Hello" },
+   ],
+   newMessageBody: 'Ку'
 }
 
 

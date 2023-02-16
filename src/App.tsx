@@ -2,7 +2,6 @@ import { ThemeProvider } from "./ThemeProvider";
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import s from './App.module.css'
 import FooterOne from "./components/Navbar/Footer";
-import MainProfile from './components/Profile/MainProfile';
 import Navigation from './components/Navbar/Navigation';
 import Dialogs from './components/Dialogs/Dialogs';
 import NewsPage from "./components/News/NewsPage";
@@ -12,6 +11,7 @@ import TestPage from './components/Settings/TestPage';
 import Sidebar from "./components/Navbar/Sidebar";
 import VideoPage from "./components/Video/VideoPage";
 import AccountMenu from "./components/Profile/AccountMenu";
+import MainProfile from "./components/Profile/MainProfile";
 
 type Props = {
    dispatch: any,
@@ -34,10 +34,9 @@ const App: React.FC<Props> = ({ ...props }) => {
                   <Routes>
                      <Route path="profile" element={<MainProfile
                         store={props.store}
-                        dispatch={props.dispatch}
                      />} />
-                     <Route path="messages" 
-                     element={<Dialogs store={props.store} />} />
+                     <Route path="messages"
+                        element={<Dialogs store={props.store} />} />
                      <Route path="news" element={<NewsPage />} />
                      <Route path="music" element={<MusicPage />} />
                      <Route path="settings" element={<SettingsPage />} />
