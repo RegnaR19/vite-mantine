@@ -21,11 +21,8 @@ const WritePostContainer: React.FC<Props> = ({ ...props }) => {
       props.store.dispatch(addPostCreator())
    }
 
-   return (
-      <WritePost newPostText={state.newPostText}
-         addPost={addPost}
-         updateNewPostText={onPostChange} />
-   )
+   return <WritePost newPostText={state.newPostText}
+      addPost={addPost} updateNewPostText={onPostChange} />
 }
 
 export default WritePostContainer;

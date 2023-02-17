@@ -3,32 +3,32 @@ import DialogItem from './DialogItem/DialogItem';
 import Messages from './Messages/MessagesLink';
 import { Button, Grid, Textarea } from '@mantine/core';
 import { IconPencilPlus } from '@tabler/icons';
-import { sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/dialogsReducer';
 
 type Props = {
-   dialogsPage?: any,
-   store?: any
+   state?: any,
+   updateNewMessageBody: any,
+   sendMessage: any,
+   dialogsPage: any,
+   newMessageBody: any
 }
 
 const Dialogs: React.FC<Props> = ({ ...props }) => {
 
-   let state = props.store.getState().dialogsPage
-
    let dialogsElements =
-      state.dialogs.map((e: any) => <DialogItem id={e.id} name={e.name} />)
+      props.dialogsPage.dialogs.map((e: any) => <DialogItem id={e.id} name={e.name} />)
 
    let messagesElements =
-      state.messages.map((e: any) => <Messages id={e.id} message={e.message} />)
+      props.dialogsPage.messages.map((e: any) => <Messages id={e.id} message={e.message} />)
 
-   let newMessageBody = state.newMessageBody
+   let newMessageBody = props.newMessageBody
 
    let onSendMessageClick = () => {
-      props.store.dispatch(sendMessageCreator())
+      props.sendMessage()
    }
 
    let onNewMessageChange = (e: any) => {
       let body = e.target.value
-      props.store.dispatch(updateNewMessageBodyCreator(body))
+      props.updateNewMessageBody(body)
    }
 
    return (
