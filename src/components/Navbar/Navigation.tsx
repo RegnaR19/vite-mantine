@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { NavLink as NavMantine } from '@mantine/core';
 import {
    IconHome2, IconSettings, IconChevronRight,
-   IconAt, IconActivity, IconCircleOff, IconBadge4k
+   IconAt, IconActivity, IconCircleOff, IconBadge4k, IconUsers
 } from '@tabler/icons';
 import s from './Navigation.module.css'
 
@@ -20,6 +20,11 @@ const Navigation = () => {
                <NavMantine
                   icon={<IconAt size={18} stroke={1.5} />}
                   description='' label="Сообщения" />
+            </NavLink>
+            <NavLink to="/users">
+               <NavMantine
+                  icon={<IconUsers size={18} stroke={1.5} />}
+                  description='' label="Пользователи" />
             </NavLink>
             <NavLink to="/news">
                <NavMantine

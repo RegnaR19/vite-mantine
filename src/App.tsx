@@ -12,13 +12,9 @@ import VideoPage from "./components/Video/VideoPage";
 import AccountMenu from "./components/Profile/AccountMenu";
 import MainProfile from "./components/Profile/MainProfile";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
-type Props = {
-   dispatch: any,
-   store: any
-}
-
-const App: React.FC<Props> = ({ ...props }) => {
+const App = () => {
    return (
       <ThemeProvider>
          <BrowserRouter>
@@ -32,11 +28,9 @@ const App: React.FC<Props> = ({ ...props }) => {
                <div className={s.col3}><Sidebar /></div>
                <div className={s.col2}>
                   <Routes>
-                     <Route path="profile" element={<MainProfile
-                        store={props.store}
-                     />} />
-                     <Route path="messages"
-                        element={<DialogsContainer store={props.store} />} />
+                     <Route path="profile" element={<MainProfile />} />
+                     <Route path="messages" element={<DialogsContainer />} />
+                     <Route path="users" element={<UsersContainer />} />
                      <Route path="news" element={<NewsPage />} />
                      <Route path="music" element={<MusicPage />} />
                      <Route path="settings" element={<SettingsPage />} />

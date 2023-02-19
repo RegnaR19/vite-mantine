@@ -1,6 +1,4 @@
-import naruto from "../assets/naruto.jpg";
-import rem from "../assets/rem.webp";
-import saske from "../assets/saske2.jpg";
+import avatar from "../assets/avatar.jpg";
 import dialogsReducer from "./dialogsReducer";
 import profileReducer from "./profileReducer";
 
@@ -21,11 +19,18 @@ let store = {
       },
       profilePage: {
          posts: [
-            { id: 1, post: "Даттебайо", message: "Я тут новенькая", likescount: 300, img: rem },
-            { id: 2, post: "Chidori!", message: "НАРУТО!!!11!", likescount: 1000, img: saske },
-            { id: 3, post: "Rasengan!", message: "САСКЕ!!!11!", likescount: 5000, img: naruto },
+            { id: 1, post: "Даттебайо", message: "Я тут новенькая", likescount: 300, img: avatar },
+            { id: 2, post: "Chidori!", message: "НАРУТО!!!11!", likescount: 1000, img: avatar },
+            { id: 3, post: "Rasengan!", message: "САСКЕ!!!11!", likescount: 5000, img: avatar },
          ],
          newPostText: 'dattebayo naruto'
+      },
+      usersPage: {
+         usersList: [
+            { id: 1, name: "Vadim", status: "Hello", city: "Альменево", img: avatar },
+            { id: 2, name: "Ruslan", status: "Student", city: "Челябинск", img: avatar },
+            { id: 3, name: "Alexandr", status: "МЧС", city: "Куртамыш", img: avatar },
+         ]
       }
    },
    // задаем возврат состояния
@@ -43,7 +48,7 @@ let store = {
       this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
       this._callSubscriber(this._state)
    },
-   
+
    subscribe(observer: any) {
       this._callSubscriber = observer;
    },

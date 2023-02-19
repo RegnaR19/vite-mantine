@@ -1,11 +1,10 @@
-// страница написания постов
 import { connect } from "react-redux";
 import { addPostCreator, updateNewPostTextCreator } from "../../redux/profileReducer";
-import WritePost from "./WritePost";
+import Users from "./Users";
 
 let mapStateToProps = (state: any) => {
    return {
-      newPostText: state.profilePage.newPostText
+      users: state.usersPage.usersList
    }
 }
 
@@ -20,7 +19,6 @@ let mapDispatchToProps = (dispatch: any) => {
    }
 }
 
-const WritePostContainer = connect(mapStateToProps, mapDispatchToProps)(WritePost)
+const UsersContainer = connect(mapStateToProps)(Users)
 
-
-export default WritePostContainer;
+export default UsersContainer;

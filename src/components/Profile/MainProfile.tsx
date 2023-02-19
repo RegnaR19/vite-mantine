@@ -4,14 +4,9 @@ import HeaderImg from './common/HeaderImg';
 import Avatar from './common/Avatar';
 import { Divider, Grid } from '@mantine/core';
 import WritePostContainer from './WritePostContainer';
-import PostElements from './PostElements';
+import PostElementsContainer from './PostElementsContainer';
 
-type Props = {
-   dispatch?: any,
-   store?: any
-}
-
-const MainProfile: React.FC<Props> = ({ ...props }) => {
+const MainProfile = () => {
 
    return (
       <>
@@ -25,9 +20,9 @@ const MainProfile: React.FC<Props> = ({ ...props }) => {
             </Grid.Col>
          </Grid>
          <Divider my="sm" />
-         <WritePostContainer store={props.store} />
+         <WritePostContainer />
          <Divider my="sm" />
-         <PostElements store={props.store} />
+         <PostElementsContainer />
       </>
    );
 }

@@ -1,11 +1,10 @@
 // обложка профиля
 import { Image } from '@mantine/core';
-import s from './HeaderImg.module.css';
-import waifu from "../../../assets/waifu.jpg";
+import sochi2 from "../../../assets/p4.jpeg";
 
 const HeaderImg = () => {
    return (
-      <Image src={waifu} />
+      <Image src={sochi2} />
    );
 }
 

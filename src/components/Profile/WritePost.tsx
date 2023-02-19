@@ -4,14 +4,14 @@ import { IconPencilPlus } from "@tabler/icons";
 
 type Props = {
    newPostText?: any,
-   addPost: any,
-   updateNewPostText: any
+   addPost?: any,
+   updateNewPostText?: any
 }
-// ОСНОВНАЯ
+
 const WritePost: React.FC<Props> = ({ ...props }) => {
 
    let newPostText = props.newPostText
-   
+
    let onPostChange = (e: any) => {
       let text = e.target.value
       props.updateNewPostText(text)

@@ -15,10 +15,10 @@ type Props = {
 const Dialogs: React.FC<Props> = ({ ...props }) => {
 
    let dialogsElements =
-      props.dialogsPage.dialogs.map((e: any) => <DialogItem id={e.id} name={e.name} />)
+      props.dialogsPage.dialogs.map((e: any) => <DialogItem id={e.id} key={e.id} name={e.name} />)
 
    let messagesElements =
-      props.dialogsPage.messages.map((e: any) => <Messages id={e.id} message={e.message} />)
+      props.dialogsPage.messages.map((e: any) => <Messages id={e.id} key={e.id} message={e.message} />)
 
    let newMessageBody = props.newMessageBody
 
