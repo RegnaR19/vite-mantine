@@ -1,7 +1,6 @@
 import { forwardRef } from 'react';
-import { IconChevronRight, IconExternalLink, IconPencilPlus, IconUserPlus } from '@tabler/icons';
-import { Group, Avatar, Text, Menu, UnstyledButton, Button } from '@mantine/core';
-import avatar from "./../../assets/avatar.jpg";
+import { IconExternalLink } from '@tabler/icons';
+import { Group, Avatar, Text, Menu, UnstyledButton } from '@mantine/core';
 
 interface UserButtonProps extends React.ComponentPropsWithoutRef<'button'> {
    img: string;
@@ -43,9 +42,11 @@ const UserButton = forwardRef<HTMLButtonElement, UserButtonProps>(
                <Text color="dimmed" size="xs">
                   {status}
                </Text>
+               <Text size="xs">
+                  <a href="/profile">Добавить в друзья</a>
+               </Text>
             </div>
-            Подписаться
-            {icon || <IconChevronRight size={16} />}
+
          </Group>
       </UnstyledButton>
    )

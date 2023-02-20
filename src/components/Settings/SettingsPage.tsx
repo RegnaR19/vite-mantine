@@ -1,13 +1,16 @@
 // основная страница настроек
 import ChangePassword from "./ChangePassword";
-import UploadAvatar from "./UploadAvatar"
+import UploadAvatar from "./UploadPhoto"
+import { Text } from '@mantine/core';
+import Indent10 from "../Forms/Indent";
 
 const SettingsPage = () => {
    return (
       <>
-         Аватар
+         <Text size="sm">Фото профиля</Text>
+         <Indent10 />
          <UploadAvatar />
-         <div style={{ marginBottom: 10 }} />
+         <Indent10 />
          <ChangePassword />
       </>
    );

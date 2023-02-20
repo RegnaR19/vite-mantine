@@ -3,7 +3,9 @@
 const MusicPage = () => {
    return (
       <>
-         Страница музыки
+         <iframe style={{border: 0, width:'100%', height:180}}
+            width="100%" height="180"
+            src="https://music.yandex.ru/iframe/#track/25763319/3047820"></iframe>
       </>
    );
 }

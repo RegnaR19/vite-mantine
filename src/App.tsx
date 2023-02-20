@@ -13,12 +13,16 @@ import AccountMenu from "./components/Profile/AccountMenu";
 import MainProfile from "./components/Profile/MainProfile";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
+import SizeColumns from "./components/Navbar/SizeColumns";
 
 const App = () => {
    return (
       <ThemeProvider>
          <BrowserRouter>
             <div className={s.layout}>
+               <div className={s.col3_noborder}>
+                  <SizeColumns />
+               </div>
                <div className={s.col2}>
                   <AccountMenu />
                </div>

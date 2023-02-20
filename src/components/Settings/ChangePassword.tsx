@@ -1,5 +1,5 @@
 import { Button, PasswordInput } from '@mantine/core';
-import exp from 'constants';
+import Indent10 from '../Forms/Indent';
 
 function ChangePassword() {
    return (
@@ -10,7 +10,7 @@ function ChangePassword() {
             description="Пароль должен включать минимум одну букву, число и специальный символ"
             withAsterisk
          />
-         <div style={{ marginBottom: 10 }} />
+         <Indent10 />
          <Button variant="gradient"
             gradient={{ from: 'indigo', to: 'cyan' }}>
             Сохранить

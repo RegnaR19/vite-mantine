@@ -7,7 +7,7 @@ function UploadAvatar() {
     <>
       <Group position="left">
         <FileButton onChange={setFile} accept="image/png,image/jpeg">
-          {(props) => <Button {...props}>Загрузить аватар</Button>}
+          {(props) => <Button {...props}>Загрузить</Button>}
         </FileButton>
       </Group>
       {file && (
