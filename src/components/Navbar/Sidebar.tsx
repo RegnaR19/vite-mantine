@@ -3,6 +3,7 @@ import { Image } from '@mantine/core';
 import react from "../../assets/react.png";
 import { Grid } from '@mantine/core';
 import s from './Sidebar.module.css';
+import RatingsPage from '../Settings/RatingsPage';
 
 export default function Sidebar() {
    return (
@@ -13,7 +14,9 @@ export default function Sidebar() {
             </Grid.Col>
             <Grid.Col>
                <center>
-                  <p>Данный проект был создан на:</p>
+                  <RatingsPage />
+                  <p>Проект был<br />
+                     создан на:</p>
                   <p>1. React</p>
                   <p>2. Node.js</p>
                   <p>3. JavaScript</p>

@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
-import { IconChevronRight, IconExternalLink } from '@tabler/icons';
-import { Group, Avatar, Text, Menu, UnstyledButton } from '@mantine/core';
+import { IconChevronRight, IconExternalLink, IconPencilPlus, IconUserPlus } from '@tabler/icons';
+import { Group, Avatar, Text, Menu, UnstyledButton, Button } from '@mantine/core';
 import avatar from "./../../assets/avatar.jpg";
 
 interface UserButtonProps extends React.ComponentPropsWithoutRef<'button'> {
@@ -24,7 +24,7 @@ const UserButton = forwardRef<HTMLButtonElement, UserButtonProps>(
 
             '&:hover': {
                backgroundColor:
-                  theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+                  theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[0],
             },
          })}
          {...others}
@@ -44,7 +44,7 @@ const UserButton = forwardRef<HTMLButtonElement, UserButtonProps>(
                   {status}
                </Text>
             </div>
-
+            Подписаться
             {icon || <IconChevronRight size={16} />}
          </Group>
       </UnstyledButton>
@@ -78,10 +78,17 @@ const UsersPage: React.FC<Props> = ({ id2, name, city, status, img }) => {
                   component="a"
                   href="/profile"
                >
-                  Открыть профиль
+                  Перейти в профиль
                </Menu.Item></Menu.Dropdown>
          </Menu>
+
+         {/* <Button variant="gradient"
+            leftIcon={<IconUserPlus />}
+            gradient={{ from: 'indigo', to: 'cyan' }}>
+            Подписаться
+         </Button> */}
       </Group>
+
    );
 }
 
