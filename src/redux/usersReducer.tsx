@@ -4,11 +4,20 @@ const ADD_POST = 'ADD_POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT'
 
 let initialState = {
-      usersList: [
-         { id: 1, name: "Vadim", status: "Погромист", city: "Альменево", img: avatar },
-         { id: 2, name: "Ruslan", status: "Студент", city: "Челябинск", img: avatar },
-         { id: 3, name: "Alexandr", status: "МЧС", city: "Куртамыш", img: avatar }
-      ]
+   usersList: [
+      {
+         id: 1, name: "Vadim", status: "Погромист",
+         city: "Альменево", img: avatar, follow: false
+      },
+      {
+         id: 2, name: "Ruslan", status: "Студент",
+         city: "Челябинск", img: avatar, follow: false
+      },
+      {
+         id: 3, name: "Alexandr", status: "МЧС",
+         city: "Куртамыш", img: avatar, follow: false
+      }
+   ]
 }
 
 const usersReducer = (state = initialState, action: any) => {
