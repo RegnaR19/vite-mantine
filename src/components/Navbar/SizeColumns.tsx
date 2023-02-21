@@ -18,4 +18,4 @@ const SizeColumns = () => {
       </>
    )
 }
-export default SizeColumns
+export default SizeColumns 
