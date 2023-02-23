@@ -1,21 +1,22 @@
 import avatar from "../assets/avatar.jpg";
 
-const ADD_POST = 'ADD_POST'
-const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT'
+const FOLLOW = 'FOLLOW'
+const UNFOLLOW = 'UNFOLLOW'
+const SET_USERS = 'SET_USERS'
 
 let initialState = {
    usersList: [
       {
          id: 1, name: "Vadim", status: "Погромист",
-         city: "Альменево", img: avatar, follow: false
+         city: "Альменево", img: avatar, followed: false
       },
       {
          id: 2, name: "Ruslan", status: "Студент",
-         city: "Челябинск", img: avatar, follow: false
+         city: "Челябинск", img: avatar, followed: false
       },
       {
          id: 3, name: "Alexandr", status: "МЧС",
-         city: "Куртамыш", img: avatar, follow: false
+         city: "Куртамыш", img: avatar, followed: false
       }
    ]
 }
@@ -24,30 +25,50 @@ const usersReducer = (state = initialState, action: any) => {
 
    switch (action.type) {
 
-      case ADD_POST: {
-         let stateCopy = { ...state }
-         return stateCopy
+      case FOLLOW: {
+         return {
+            ...state,
+            usersList: state.usersList.map(u => {
+               if (u.id === action.userID) {
+                  return { ...u, followed: false }
+               }
+               return u
+            })
+         }
       }
-
-      case UPDATE_NEW_POST_TEXT: {
-         let stateCopy = { ...state }
-         return stateCopy
+      case UNFOLLOW: {
+         return {
+            ...state,
+            usersList: state.usersList.map(u => {
+               if (u.id === action.userID) {
+                  return { ...u, followed: true }
+               }
+               return u
+            })
+         }
       }
       default:
          return state
    }
 }
 
-export const addPostCreator = () => {
+export const followAC = (userID: any) => {
    return {
-      type: ADD_POST
+      type: FOLLOW, userID
    }
 }
 
-export const updateNewPostTextCreator = (text: any) => {
+export const unfollowAC = (userID: any) => {
    return {
-      type: UPDATE_NEW_POST_TEXT, text: text
+      type: UNFOLLOW, userID
    }
 }
+
+export const setUsersAC = (users) => {
+   return {
+      type: SET_USERS, users
+   }
+}
+
 
 export default usersReducer

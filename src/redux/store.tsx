@@ -24,13 +24,6 @@ let store = {
             { id: 3, post: "Rasengan!", message: "САСКЕ!!!11!", likescount: 5000, img: avatar },
          ],
          newPostText: 'dattebayo naruto'
-      },
-      usersPage: {
-         usersList: [
-            { id: 1, name: "Vadim", status: "Hello", city: "Альменево", img: avatar },
-            { id: 2, name: "Ruslan", status: "Student", city: "Челябинск", img: avatar },
-            { id: 3, name: "Alexandr", status: "МЧС", city: "Куртамыш", img: avatar },
-         ]
       }
    },
    // задаем возврат состояния
