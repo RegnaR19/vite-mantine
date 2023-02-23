@@ -15,6 +15,13 @@
    width: 800px;
 }
 
+.layout1 {
+   overflow: hidden;
+   margin-left: auto;
+   margin-right: auto;
+   width: 1100px;
+}
+
 .col1_noborder {
    float: left;
    width: 180px;
@@ -35,6 +42,14 @@
    justify-content: center;
 }
 
+.col2_wide {
+   width: 700px;
+   margin: 0 200px 0 200px;
+   padding: 10px;
+   border: 1px solid #424242;
+   justify-content: center;
+}
+
 .col3_noborder {
    width: 180px;
    height: 94px;
@@ -42,7 +57,6 @@
    display: flex;
    justify-content: center;
    flex-direction: column;
-   /* border: 1px solid #9bf110; */
 }
 
 .col3 {
