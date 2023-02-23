@@ -13,24 +13,39 @@ import AccountMenu from "./components/Profile/AccountMenu";
 import MainProfile from "./components/Profile/MainProfile";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
-import SizeColumns from "./components/Navbar/SizeColumns";
+import { useState } from "react";
+import { Button } from "@mantine/core";
 
 const App = () => {
+   const [style, setStyle] = useState(s.layout)
+   const changeStyle = () => {
+      setStyle(s.layout1)
+   }
+
+   const [style2, setStyle2] = useState(s.col2)
+   const changeStyle2 = () => {
+      setStyle2(s.col2_wide)
+   }
+
    return (
       <ThemeProvider>
          <BrowserRouter>
-            <div className={s.layout}>
+            <div className={style}>
+               <div className={s.col1}></div>
                <div className={s.col3_noborder}>
-                  <SizeColumns />
+                  <Button variant="outline" size="sm"
+                     onClick={() => { changeStyle(); changeStyle2() }}>
+                     Изменить размер
+                  </Button>
                </div>
-               <div className={s.col2}>
+               <div className={style2}>
                   <AccountMenu />
                </div>
             </div>
-            <div className={s.layout}>
+            <div className={style}>
                <div className={s.col1}><Navigation /></div>
                <div className={s.col3}><Sidebar /></div>
-               <div className={s.col2}>
+               <div className={style2}>
                   <Routes>
                      <Route path="profile" element={<MainProfile />} />
                      <Route path="messages" element={<DialogsContainer />} />
@@ -43,10 +58,10 @@ const App = () => {
                   </Routes>
                </div>
             </div>
-            <div className={s.layout}>
+            <div className={style}>
                <div className={s.col1_noborder}></div>
                <div className={s.col3_noborder}></div>
-               <div className={s.col2}>
+               <div className={style2}>
                   <div className={s.header}><FooterOne /></div>
                </div>
             </div>
