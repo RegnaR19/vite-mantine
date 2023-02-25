@@ -8,15 +8,15 @@ let initialState = {
    usersList: [
       {
          id: 1, name: "Vadim", status: "Погромист",
-         city: "Альменево", img: avatar, followed: false
+         city: "Альменево", img: avatar, followed: "false"
       },
       {
          id: 2, name: "Ruslan", status: "Студент",
-         city: "Челябинск", img: avatar, followed: false
+         city: "Челябинск", img: avatar, followed: "false"
       },
       {
          id: 3, name: "Alexandr", status: "МЧС",
-         city: "Куртамыш", img: avatar, followed: false
+         city: "Куртамыш", img: avatar, followed: "false"
       }
    ]
 }
@@ -47,6 +47,11 @@ const usersReducer = (state = initialState, action: any) => {
             })
          }
       }
+      case SET_USERS: {
+         return {
+            ...state, usersList: [...state.usersList, ...action.usersList]
+         }
+      }
       default:
          return state
    }
@@ -64,9 +69,9 @@ export const unfollowAC = (userID: any) => {
    }
 }
 
-export const setUsersAC = (users) => {
+export const setUsersAC = (usersList: any) => {
    return {
-      type: SET_USERS, users
+      type: SET_USERS, usersList
    }
 }
 

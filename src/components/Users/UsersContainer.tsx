@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { addPostCreator, updateNewPostTextCreator } from "../../redux/profileReducer";
+import { followAC, unfollowAC, setUsersAC } from "../../redux/usersReducer";
 import Users from "./Users";
 
 let mapStateToProps = (state: any) => {
@@ -10,15 +10,16 @@ let mapStateToProps = (state: any) => {
 
 let mapDispatchToProps = (dispatch: any) => {
    return {
-      updateNewPostText: (text: any) => {
-         dispatch(updateNewPostTextCreator(text))
+      follow: (userID: any) => {
+         dispatch(followAC(userID))
       },
-      addPost: () => {
-         dispatch(addPostCreator())
+      unfollow: (userID: any) => {
+         dispatch(unfollowAC(userID))
+      },
+      setUsers: (users: any) => {
+         dispatch(setUsersAC(users))
       }
    }
 }
 
-const UsersContainer = connect(mapStateToProps)(Users)
-
-export default UsersContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(Users)

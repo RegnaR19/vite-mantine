@@ -1,5 +1,4 @@
 import { forwardRef } from 'react';
-import { IconExternalLink } from '@tabler/icons';
 import { Group, Avatar, Text, Menu, UnstyledButton } from '@mantine/core';
 
 interface UserButtonProps extends React.ComponentPropsWithoutRef<'button'> {
@@ -8,11 +7,13 @@ interface UserButtonProps extends React.ComponentPropsWithoutRef<'button'> {
    icon?: React.ReactNode;
    id2: string,
    city: any,
-   status: any
+   status: any,
+   follow?: any,
+   unfollow?: any
 }
 
 const UserButton = forwardRef<HTMLButtonElement, UserButtonProps>(
-   ({ img, name, icon, id2, city, status, ...others }: UserButtonProps, ref) => (
+   ({ img, name, icon, id2, city, status, follow, ...others }: UserButtonProps, ref) => (
       <UnstyledButton
          ref={ref}
          sx={(theme) => ({
@@ -42,11 +43,8 @@ const UserButton = forwardRef<HTMLButtonElement, UserButtonProps>(
                <Text color="dimmed" size="xs">
                   {status}
                </Text>
-               <Text size="xs">
-                  <a href="/profile">Добавить в друзья</a>
-               </Text>
-            </div>
 
+            </div>
          </Group>
       </UnstyledButton>
    )
@@ -73,21 +71,7 @@ const UsersPage: React.FC<Props> = ({ id2, name, city, status, img }) => {
                   status={status}
                />
             </Menu.Target>
-            <Menu.Dropdown>
-               <Menu.Item
-                  icon={<IconExternalLink size={14} />}
-                  component="a"
-                  href="/profile"
-               >
-                  Перейти в профиль
-               </Menu.Item></Menu.Dropdown>
          </Menu>
-
-         {/* <Button variant="gradient"
-            leftIcon={<IconUserPlus />}
-            gradient={{ from: 'indigo', to: 'cyan' }}>
-            Подписаться
-         </Button> */}
       </Group>
 
    );

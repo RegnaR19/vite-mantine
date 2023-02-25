@@ -31,7 +31,7 @@ const App = () => {
       <ThemeProvider>
          <BrowserRouter>
             <div className={style}>
-               <div className={s.col1}></div>
+               <div className={s.col1_noborder}></div>
                <div className={s.col3_noborder}>
                   <Button variant="outline" size="sm"
                      onClick={() => { changeStyle(); changeStyle2() }}>
