@@ -12,7 +12,7 @@ import VideoPage from "./components/Video/VideoPage";
 import AccountMenu from "./components/Profile/AccountMenu";
 import MainProfile from "./components/Profile/MainProfile";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import UsersContainer from "./components/Users/UsersContainer";
+import UsersContainer from "./components/Users/Users";
 import { useState } from "react";
 import { Button } from "@mantine/core";
 
