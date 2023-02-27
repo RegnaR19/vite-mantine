@@ -4,9 +4,7 @@ import Users from "./Users";
 
 let mapStateToProps = (state: any) => {
    return {
-      dialogsPage: state.dialogsPage,
-      newMessageBody: state.dialogsPage.newMessageBody,
-      a: "Привет"
+      users: state.usersPage.usersList
    }
 }
 
@@ -23,7 +21,6 @@ let mapDispatchToProps = (dispatch: any) => {
       }
    }
 }
-
 
 const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(Users)
 
