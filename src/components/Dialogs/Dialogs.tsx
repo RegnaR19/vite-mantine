@@ -9,7 +9,8 @@ type Props = {
    updateNewMessageBody: any,
    sendMessage: any,
    dialogsPage: any,
-   newMessageBody: any
+   newMessageBody: any,
+   ab: any
 }
 
 const Dialogs: React.FC<Props> = ({ ...props }) => {
@@ -31,6 +32,8 @@ const Dialogs: React.FC<Props> = ({ ...props }) => {
       props.updateNewMessageBody(body)
    }
 
+   let a = props.ab
+
    return (
       <>
          <Grid grow>
@@ -38,7 +41,7 @@ const Dialogs: React.FC<Props> = ({ ...props }) => {
             <Grid.Col span={7} className={s.border}><b>Сообщения</b></Grid.Col>
             <Grid.Col span={5} className={s.border}>{dialogsElements}</Grid.Col>
             <Grid.Col span={7} className={s.border}>
-               {messagesElements}
+               {messagesElements}{a}
             </Grid.Col>
          </Grid>
          <div style={{ marginBottom: 20 }} />

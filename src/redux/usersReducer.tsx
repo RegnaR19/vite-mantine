@@ -6,6 +6,7 @@ const SET_USERS = 'SET_USERS'
 
 let initialState = {
    usersList: [
+
    ]
 }
 

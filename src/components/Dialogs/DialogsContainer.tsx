@@ -5,7 +5,8 @@ import Dialogs from './Dialogs';
 let mapStateToProps = (state: any) => {
    return {
       dialogsPage: state.dialogsPage,
-      newMessageBody: state.dialogsPage.newMessageBody
+      newMessageBody: state.dialogsPage.newMessageBody,
+      ab: "Привет"
    }
 }
 
@@ -20,7 +21,6 @@ let mapDispatchToProps = (dispatch: any) => {
    }
 }
 
-const DialogsContainer = connect(mapStateToProps,
-   mapDispatchToProps)(Dialogs)
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
 
 export default DialogsContainer;

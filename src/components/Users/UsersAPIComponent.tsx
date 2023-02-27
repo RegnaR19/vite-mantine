@@ -17,6 +17,7 @@ class Users extends React.Component<Props> {
          )
    }
 
+
    usersElements = () => {
       this.props.users.map((e: any) => <UsersPage id2={e.id} name={e.name}
          status={e.status} city={e.city} img={e.img} />)
