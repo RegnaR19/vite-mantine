@@ -25,7 +25,8 @@ export default function Sidebar() {
                   <p>6. Vite NPM</p>
                   <p>7. GitHub</p>
                   <p>8. VS Code</p>
-                  <p>9. На опыте :)</p>
+                  <p>9. Electron</p>
+                  <p>10. На опыте :)</p>
                </center>
             </Grid.Col>
          </Grid>
